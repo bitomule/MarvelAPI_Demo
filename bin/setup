@@ -1,0 +1,19 @@
+#!/bin/bash
+bundle install
+which -s brew
+if [[ $? != 0 ]] ; then
+	echo "Homebrew required. Do you want to install it?"
+	select yn in "Yes" "No"; do
+    case $yn in
+        Yes )  /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"; break;;
+        No ) exit;;
+    esac
+done
+fi
+
+if which swiftgen >/dev/null; then
+  echo "Swiftgen installed"
+else
+  brew install swiftgen
+fi
+#bin/bootstrap
