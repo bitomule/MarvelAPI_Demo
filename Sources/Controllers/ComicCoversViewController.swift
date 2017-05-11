@@ -39,12 +39,13 @@ class ComicCoversViewController: UIViewController {
     collectionView.reactive.reloadData <~ viewModel.outputs.itemsReloaded
     
     viewModel.outputs.itemsAdded.observeValues {[weak self] addedCount in
+      guard let strongSelf = self else {return}
+      let currentItemsCount = strongSelf.collectionView.numberOfItems(inSection: 0)
       var indexPaths = [IndexPath]()
-      for index in 0...addedCount{
-        indexPaths.append(IndexPath(item: index, section: 0))
+      for index in 0..<addedCount{
+        indexPaths.append(IndexPath(item: currentItemsCount + index, section: 0))
       }
-      //self?.collectionView.insertItems(at: indexPaths)
-      self?.collectionView.reloadData()
+      self?.collectionView.insertItems(at: indexPaths)
     }
   }
   
@@ -94,7 +95,7 @@ extension ComicCoversViewController:UICollectionViewDelegateFlowLayout{
 
 extension ComicCoversViewController:UIScrollViewDelegate{
   func scrollViewDidScroll(_ scrollView: UIScrollView) {
-    if scrollView.isCloseToBottom(margin: scrollView.bounds.height * 0.3){
+    if scrollView.isCloseToBottom(margin: scrollView.bounds.height * 0.4){
       viewModel.inputs.loadMore()
     }
   }
