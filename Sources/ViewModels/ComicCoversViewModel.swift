@@ -12,6 +12,8 @@ import Result
 protocol ComicCoversOutput{
   var itemsCount:MutableProperty<Int> {get}
   func itemAt(index:Int)->Comic
+  var itemsAdded:Signal<Int,NoError> {get}
+  var itemsReloaded:Signal<(),NoError> {get}
 }
 
 protocol ComicCoversInput{
@@ -36,6 +38,9 @@ final class ComicCoversViewModel:ComicCoversViewModelType,ComicCoversInput,Comic
   func itemAt(index:Int)->Comic{
     return comics.value[index]
   }
+  
+  let itemsAdded:Signal<Int, NoError>
+  let itemsReloaded:Signal<(),NoError>
   
   //Inputs
   
@@ -65,6 +70,14 @@ final class ComicCoversViewModel:ComicCoversViewModelType,ComicCoversInput,Comic
   init(limit:Int = 10,dataSource:ComicCoversDataSource = InMemoryDataSource()){
     self.dataSource = dataSource
     self.limit = limit
+    
+    itemsAdded = comics.signal.combinePrevious([]).map { oldItems, newItems -> Int in
+      return newItems.count - oldItems.count
+    }
+    
+    itemsReloaded = comics.signal.combinePrevious([]).filter({ oldItems, newItems -> Bool in
+      return oldItems.count == newItems.count || oldItems.count > newItems.count
+    }).map{_ in ()}
     
     comics <~ reloadData.filter({[weak self] _ -> Bool in
       guard let strongSelf = self else {return false}
