@@ -17,8 +17,8 @@ import Result
 
 
 private enum MarvelService {
-  case comics(apiKey:String,characters:[String],limit:Int?,offset:Int?)
-  case comic(apiKey:String,id:Int)
+  case comics(privateAPIKey:String,publicAPIKey:String,characters:[String],limit:Int?,offset:Int?)
+  case comic(privateAPIKey:String,publicAPIKey:String,id:Int)
 }
 
 extension MarvelService: TargetType {
@@ -27,9 +27,9 @@ extension MarvelService: TargetType {
   
   var path: String {
     switch self {
-    case let .comics(_,_,_,_):
+    case let .comics(_,_,_,_,_):
       return "/public/comics"
-    case .comic(_,_):
+    case .comic(_,_,_):
       return "/details/json"
     }
   }
@@ -42,9 +42,17 @@ extension MarvelService: TargetType {
   
   var parameters: [String: Any]? {
     switch self {
-    case let .comics(apiKey,characters,limit,offset):
-      return ["format":"comic","limit":limit,"offset":offset,"apikey":apiKey]
-    case .comic(_,_):
+    case let .comics(privateAPIKey,publicAPIKey,characters,limit,offset):
+      let timeStamp = Int(Date().timeIntervalSince1970 * 1000)
+      return [
+        "ts":timeStamp,
+        "hash":MarvelHashGenerator.generateHash(timestamp: timeStamp, privateKey: privateAPIKey, publicKey: publicAPIKey),
+        "format":"comic",
+        "limit":limit,
+        "offset":offset,
+        "apikey":publicAPIKey
+      ]
+    case .comic(_,_,_):
       return [:]
     }
   }
@@ -74,12 +82,15 @@ final class MarvelAPIDataSource{
   
   fileprivate let marvelService = ReactiveSwiftMoyaProvider<MarvelService>(plugins: [NetworkLoggerPlugin(verbose: true)])
   
-  let apiKey:String
+  let publicAPIKey:String
+  let privateAPIKey:String
   
   init(){
     if let path = Bundle.main.path(forResource: "keys", ofType: "plist") ,
-      let key = NSDictionary(contentsOfFile: path)?.value(forKey: "marvelAPIKey") as? String{
-      apiKey = key
+      let publicKey = NSDictionary(contentsOfFile: path)?.value(forKey: "marvelPublicAPIKey") as? String,
+      let privateKey = NSDictionary(contentsOfFile: path)?.value(forKey: "marvelPrivateAPIKey") as? String{
+      publicAPIKey = publicKey
+      privateAPIKey = privateKey
     }else{
       fatalError("Please provide marvel api key in keys plist")
     }
@@ -112,7 +123,7 @@ extension SignalProducerProtocol where Self.Error == MoyaError{
 
 extension MarvelAPIDataSource:ComicCoversDataSource{
   func getComics(characters:[String],limit:Int?,offset:Int?)->SignalProducer<[Comic],DataSourceError>{
-    return marvelService.request(.comics(apiKey: apiKey,characters: characters, limit: limit, offset: offset)).mapArray(type: Comic.self, forKeyPath: "data.results").mapRequestError()
+    return marvelService.request(.comics(privateAPIKey: privateAPIKey,publicAPIKey: publicAPIKey,characters: characters, limit: limit, offset: offset)).mapArray(type: Comic.self, forKeyPath: "data.results").mapRequestError()
   }
 }
 
@@ -120,7 +131,7 @@ extension MarvelAPIDataSource:ComicCoversDataSource{
 extension MarvelAPIDataSource:ComicDetailDataSource{
   
   func getComic(id:Int)->SignalProducer<Comic,DataSourceError>{
-    return marvelService.request(.comic(apiKey: apiKey,id: id)).mapObject(type: Comic.self).mapRequestError()
+    return marvelService.request(.comic(privateAPIKey: privateAPIKey,publicAPIKey: publicAPIKey,id: id)).mapObject(type: Comic.self).mapRequestError()
   }
 }
 

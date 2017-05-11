@@ -71,6 +71,8 @@ final class ComicCoversViewModel:ComicCoversViewModelType,ComicCoversInput,Comic
     self.dataSource = dataSource
     self.limit = limit
     
+    itemsCount <~ comics.map{$0.count}
+    
     itemsAdded = comics.signal.combinePrevious([]).map { oldItems, newItems -> Int in
       return newItems.count - oldItems.count
     }
@@ -93,9 +95,7 @@ final class ComicCoversViewModel:ComicCoversViewModelType,ComicCoversInput,Comic
         })
         .ignoreErrors()
         .map{$0 + strongSelf.comics.value}
-    }
-    
-    itemsCount <~ comics.map{$0.count}
+    }    
     
     reloadDataObserver.send(value: ())
     

@@ -43,7 +43,8 @@ class ComicCoversViewController: UIViewController {
       for index in 0...addedCount{
         indexPaths.append(IndexPath(item: index, section: 0))
       }
-      self?.collectionView.insertItems(at: indexPaths)
+      //self?.collectionView.insertItems(at: indexPaths)
+      self?.collectionView.reloadData()
     }
   }
   
