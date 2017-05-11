@@ -62,6 +62,12 @@ class ComicDetailViewController: UIViewController {
     backButton.alpha = 0
   }
   
+  override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
+    super.traitCollectionDidChange(previousTraitCollection)
+    header.minimumBarHeight = navigationController?.navigationBar.bounds.height ?? header.minimumBarHeight
+    header.updateProgress()
+  }
+  
 }
 
 extension ComicDetailViewController:UIScrollViewDelegate{
