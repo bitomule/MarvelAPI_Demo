@@ -22,7 +22,7 @@ final class ComicCoversViewModelSpec: QuickSpec {
       dataSource.fakeResponse = nil
     }
     describe("outputs") {
-      it("is returns item count equal to dataSource comics count") {
+      it("is has as many commics as data source") {
         dataSource.fakeResponse = { _, _, _ in
           return SignalProducer(value: [
             Comic(id: 0, title: "", issueNumber: 1, description: "", pageCount: 1, thumbnail: nil, images: []),
@@ -33,6 +33,15 @@ final class ComicCoversViewModelSpec: QuickSpec {
         
         viewModel = ComicCoversViewModel(limit:1,dataSource:dataSource)
         
+        expect(viewModel.comics.value.count).to(equal(2))
+      }
+      
+      it("is returns item count equal to comics councs") {
+        viewModel = ComicCoversViewModel(limit:1,dataSource:dataSource)
+        viewModel.comics.value = [
+          Comic(id: 0, title: "", issueNumber: 1, description: "", pageCount: 1, thumbnail: nil, images: []),
+          Comic(id: 0, title: "", issueNumber: 1, description: "", pageCount: 1, thumbnail: nil, images: [])
+        ]
         expect(viewModel.outputs.itemsCount.value).to(equal(2))
       }
       

@@ -18,11 +18,12 @@
                 <rect key="frame" x="0.0" y="0.0" width="159" height="170"/>
                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 <subviews>
-                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="0hh-GM-eoh">
+                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="0hh-GM-eoh">
                         <rect key="frame" x="0.0" y="0.0" width="159" height="170"/>
                     </imageView>
                 </subviews>
             </view>
+            <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
             <constraints>
                 <constraint firstItem="0hh-GM-eoh" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="3ec-uP-y9H"/>
                 <constraint firstAttribute="bottom" secondItem="0hh-GM-eoh" secondAttribute="bottom" id="8iF-f3-HMP"/>

@@ -8,11 +8,11 @@
 
 import UIKit
 
-protocol AppCoordinatorType{
-  var router:RouterType {get}
+protocol AppCoordinatorType:class{
+  var router:RouterType! {get}
 }
 
-final class AppCoordinator{
+final class AppCoordinator:AppCoordinatorType{
   
   let window:UIWindow
   var router:RouterType!
@@ -29,8 +29,8 @@ final class AppCoordinator{
   }
   
   func start(){
-    //let mainViewController = Routes.first.controllerWith(appCoordinator: self)
-    //window.rootViewController = mainViewController
-    //window.makeKeyAndVisible()
+    let mainViewController = Routes.comicCovers.controllerWith(appCoordinator: self)
+    window.rootViewController = mainViewController
+    window.makeKeyAndVisible()
   }
 }

@@ -8,6 +8,8 @@
 
 import UIKit
 import Reusable
+import ReactiveCocoa
+import ReactiveSwift
 
 class ComicCoversViewController: UIViewController {
   
@@ -29,7 +31,30 @@ class ComicCoversViewController: UIViewController {
   
   override func viewDidLoad() {
     super.viewDidLoad()
+    
+    title = L10n.comicsCoversTitle.string
+    
     collectionView.register(cellType: ComicCoverCollectionViewCell.self)
+    
+    collectionView.reactive.reloadData <~ viewModel.outputs.itemsReloaded
+    
+    viewModel.outputs.itemsAdded.observeValues {[weak self] addedCount in
+      var indexPaths = [IndexPath]()
+      for index in 0...addedCount{
+        indexPaths.append(IndexPath(item: index, section: 0))
+      }
+      self?.collectionView.insertItems(at: indexPaths)
+    }
+  }
+  
+  override func viewWillAppear(_ animated: Bool) {
+    super.viewWillAppear(animated)
+    collectionView.reloadData()
+  }
+  
+  override func willTransition(to newCollection: UITraitCollection, with coordinator: UIViewControllerTransitionCoordinator) {
+    super.willTransition(to: newCollection, with: coordinator)
+    collectionView.collectionViewLayout.invalidateLayout()
   }
   
 }
@@ -55,6 +80,11 @@ extension ComicCoversViewController:UICollectionViewDataSource{
 // MARK: - FlowLayoutDelegate
 
 extension ComicCoversViewController:UICollectionViewDelegateFlowLayout{
+  func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+    return CGSize(width: collectionView.bounds.width * 0.5, height: collectionView.bounds.height * 0.3)
+  }
+  
+  
   
 }
 

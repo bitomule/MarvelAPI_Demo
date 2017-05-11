@@ -91,9 +91,7 @@ final class ComicCoversViewModel:ComicCoversViewModelType,ComicCoversInput,Comic
             strongSelf.noMoreDataAvailable = true
           }
         })
-        .reduce(strongSelf.comics.value, { oldComics, newComics -> [Comic] in
-        return oldComics + newComics
-      })
+        .map{$0 + strongSelf.comics.value}
     }
     
     itemsCount <~ comics.map{$0.count}

@@ -21,7 +21,7 @@ enum NavigationError:Error{
 }
 
 protocol RouterNavigable{
-  func controllerWith(appCoordinator:AppCoordinator)->UIViewController
+  func controllerWith(appCoordinator:AppCoordinatorType)->UIViewController
 }
 
 protocol RouterType:class{
@@ -30,10 +30,10 @@ protocol RouterType:class{
 
 final class Router:RouterType{
   
-  weak var appCoordinator:AppCoordinator!
+  weak var appCoordinator:AppCoordinatorType!
   var navigating = false
   
-  init(appCoordinator:AppCoordinator){
+  init(appCoordinator:AppCoordinatorType){
     self.appCoordinator = appCoordinator
   }
   
@@ -72,14 +72,16 @@ final class Router:RouterType{
 }
 
 enum Routes{
-  
+  case comicCovers
 }
 
 extension Routes:RouterNavigable{
-  func controllerWith(appCoordinator:AppCoordinator)->UIViewController{
+  func controllerWith(appCoordinator:AppCoordinatorType)->UIViewController{
     switch self {
-    default:
-      return UIViewController()
+    case .comicCovers:
+      let vm = ComicCoversViewModel()
+      let vc = ComicCoversViewController(appCoordinator: appCoordinator, viewModel: vm)
+      return UINavigationController(rootViewController: vc)
     }
   }
 }
