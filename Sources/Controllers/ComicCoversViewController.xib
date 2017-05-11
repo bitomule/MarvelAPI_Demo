@@ -11,6 +11,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ComicCoversViewController" customModule="WallapopMarvel" customModuleProvider="target">
             <connections>
+                <outlet property="collectionView" destination="8kR-QV-fUl" id="qlV-IH-z9n"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>

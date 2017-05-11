@@ -7,8 +7,12 @@
 //
 
 import UIKit
+import Reusable
 
 class ComicCoversViewController: UIViewController {
+  
+  @IBOutlet weak var collectionView: UICollectionView!
+  
   
   let appCoordinator:AppCoordinatorType
   let viewModel: ComicCoversViewModelType
@@ -25,7 +29,32 @@ class ComicCoversViewController: UIViewController {
   
   override func viewDidLoad() {
     super.viewDidLoad()
-    
+    collectionView.register(cellType: ComicCoverCollectionViewCell.self)
   }
   
 }
+
+// MARK: - CollectionViewDataSource
+
+extension ComicCoversViewController:UICollectionViewDataSource{
+  func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int{
+    return viewModel.outputs.itemsCount.value
+  }
+  
+  func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell{
+    let cell:ComicCoverCollectionViewCell = collectionView.dequeueReusableCell(for: indexPath)
+    if let url = viewModel.outputs.itemAt(index: indexPath.row).thumbnail{
+      cell.setup(imageUrl: url)
+    }
+    return cell
+  }
+
+}
+
+
+// MARK: - FlowLayoutDelegate
+
+extension ComicCoversViewController:UICollectionViewDelegateFlowLayout{
+  
+}
+
