@@ -14,9 +14,11 @@ class ComicDetailViewController: UIViewController {
   @IBOutlet weak var backButton: UIButton!
   
   let appCoordinator:AppCoordinatorType
+  let viewModel:ComicDetailViewModelType
   
-  init(appCoordinator:AppCoordinatorType) {
+  init(appCoordinator:AppCoordinatorType,viewModel:ComicDetailViewModelType) {
     self.appCoordinator = appCoordinator
+    self.viewModel = viewModel
     super.init(nibName: "\(ComicDetailViewController.self)", bundle: nil)
   }
   

@@ -34,6 +34,8 @@
 		4121CA271EC4A7E000062D37 /* ComicDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4121CA251EC4A7E000062D37 /* ComicDetailViewController.swift */; };
 		4121CA281EC4A7E000062D37 /* ComicDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4121CA261EC4A7E000062D37 /* ComicDetailViewController.xib */; };
 		4121CA2B1EC4A8F500062D37 /* ParallaxHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4121CA2A1EC4A8F500062D37 /* ParallaxHeaderView.swift */; };
+		4121CA2D1EC4BDCA00062D37 /* ComicDetailDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4121CA2C1EC4BDCA00062D37 /* ComicDetailDataSource.swift */; };
+		4121CA2F1EC4BE5100062D37 /* ComicDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4121CA2E1EC4BE5100062D37 /* ComicDetailViewModel.swift */; };
 		41CF1F591E41FEA0009CCA34 /* ReactiveCocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 41CF1F561E41FEA0009CCA34 /* ReactiveCocoa.framework */; };
 		41CF1F5A1E41FEA0009CCA34 /* ReactiveSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 41CF1F571E41FEA0009CCA34 /* ReactiveSwift.framework */; };
 		41CF1F5B1E41FEA0009CCA34 /* Result.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 41CF1F581E41FEA0009CCA34 /* Result.framework */; };
@@ -102,6 +104,8 @@
 		4121CA251EC4A7E000062D37 /* ComicDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ComicDetailViewController.swift; sourceTree = "<group>"; };
 		4121CA261EC4A7E000062D37 /* ComicDetailViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = ComicDetailViewController.xib; path = ../Controllers/ComicDetailViewController.xib; sourceTree = "<group>"; };
 		4121CA2A1EC4A8F500062D37 /* ParallaxHeaderView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ParallaxHeaderView.swift; sourceTree = "<group>"; };
+		4121CA2C1EC4BDCA00062D37 /* ComicDetailDataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ComicDetailDataSource.swift; sourceTree = "<group>"; };
+		4121CA2E1EC4BE5100062D37 /* ComicDetailViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ComicDetailViewModel.swift; sourceTree = "<group>"; };
 		41CF1F561E41FEA0009CCA34 /* ReactiveCocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ReactiveCocoa.framework; path = Carthage/Build/iOS/ReactiveCocoa.framework; sourceTree = "<group>"; };
 		41CF1F571E41FEA0009CCA34 /* ReactiveSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ReactiveSwift.framework; path = Carthage/Build/iOS/ReactiveSwift.framework; sourceTree = "<group>"; };
 		41CF1F581E41FEA0009CCA34 /* Result.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Result.framework; path = Carthage/Build/iOS/Result.framework; sourceTree = "<group>"; };
@@ -187,6 +191,7 @@
 			children = (
 				4121CA0C1EC436C800062D37 /* ComicCoversDataSource.swift */,
 				4121CA0E1EC438D700062D37 /* InMemoryDataSource.swift */,
+				4121CA2C1EC4BDCA00062D37 /* ComicDetailDataSource.swift */,
 			);
 			name = DataSources;
 			sourceTree = "<group>";
@@ -350,6 +355,7 @@
 			isa = PBXGroup;
 			children = (
 				4121CA091EC4363100062D37 /* ComicCoversViewModel.swift */,
+				4121CA2E1EC4BE5100062D37 /* ComicDetailViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -541,6 +547,7 @@
 				4121CA041EC4343700062D37 /* NavigationController+Completion.swift in Sources */,
 				4121CA021EC433FD00062D37 /* Router.swift in Sources */,
 				4121CA201EC48CB800062D37 /* ComicCoverCollectionViewCell.swift in Sources */,
+				4121CA2D1EC4BDCA00062D37 /* ComicDetailDataSource.swift in Sources */,
 				4121CA001EC4331000062D37 /* AppCoordinator.swift in Sources */,
 				4121CA0A1EC4363100062D37 /* ComicCoversViewModel.swift in Sources */,
 				4121CA271EC4A7E000062D37 /* ComicDetailViewController.swift in Sources */,
@@ -552,6 +559,7 @@
 				4121CA0D1EC436C800062D37 /* ComicCoversDataSource.swift in Sources */,
 				4121CA241EC4A3AA00062D37 /* Strings.swift in Sources */,
 				E240F77D45ED5ACE1B723036 /* AppDelegate.swift in Sources */,
+				4121CA2F1EC4BE5100062D37 /* ComicDetailViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

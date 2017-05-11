@@ -84,7 +84,8 @@ extension Routes:RouterNavigable{
       let vc = ComicCoversViewController(appCoordinator: appCoordinator, viewModel: vm)
       return UINavigationController(rootViewController: vc)
     case .comicDetail:
-      let vc = ComicDetailViewController(appCoordinator: appCoordinator)
+      let vm = ComicDetailViewModel()
+      let vc = ComicDetailViewController(appCoordinator: appCoordinator,viewModel:vm)
       return vc
     }
   }
