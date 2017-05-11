@@ -73,6 +73,7 @@ final class Router:RouterType{
 
 enum Routes{
   case comicCovers
+  case comicDetail
 }
 
 extension Routes:RouterNavigable{
@@ -82,6 +83,9 @@ extension Routes:RouterNavigable{
       let vm = ComicCoversViewModel()
       let vc = ComicCoversViewController(appCoordinator: appCoordinator, viewModel: vm)
       return UINavigationController(rootViewController: vc)
+    case .comicDetail:
+      let vc = ComicDetailViewController(appCoordinator: appCoordinator)
+      return vc
     }
   }
 }

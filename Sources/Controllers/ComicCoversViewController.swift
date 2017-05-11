@@ -84,7 +84,10 @@ extension ComicCoversViewController:UICollectionViewDelegateFlowLayout{
     return CGSize(width: collectionView.bounds.width * 0.5, height: collectionView.bounds.height * 0.3)
   }
   
-  
+  func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+    collectionView.deselectItem(at: indexPath, animated: true)
+    appCoordinator.router.navigate(from: self, to: Routes.comicDetail, style: .push).start()
+  }
   
 }
 

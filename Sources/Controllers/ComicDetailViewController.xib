@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="12120" systemVersion="16E195" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12088"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ComicDetailViewController" customModule="WallapopMarvel" customModuleProvider="target">
+            <connections>
+                <outlet property="backButton" destination="64L-xe-fM1" id="zgS-G1-yTn"/>
+                <outlet property="header" destination="UYj-Dg-lEo" id="aVo-YZ-9C9"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ItQ-MM-354">
+                    <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                    <subviews>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="sjc-Mb-vRF">
+                            <rect key="frame" x="0.0" y="0.0" width="375" height="924"/>
+                            <subviews>
+                                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" editable="NO" textAlignment="natural" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MIn-wx-VRv">
+                                    <rect key="frame" x="10" y="10" width="355" height="904"/>
+                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                    <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
+                                    <fontDescription key="fontDescription" type="system" pointSize="31"/>
+                                    <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                </textView>
+                            </subviews>
+                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                            <constraints>
+                                <constraint firstItem="MIn-wx-VRv" firstAttribute="leading" secondItem="sjc-Mb-vRF" secondAttribute="leading" constant="10" id="b7G-7w-sTJ"/>
+                                <constraint firstItem="MIn-wx-VRv" firstAttribute="top" secondItem="sjc-Mb-vRF" secondAttribute="top" constant="10" id="i2L-Ct-c9z"/>
+                                <constraint firstAttribute="bottom" secondItem="MIn-wx-VRv" secondAttribute="bottom" constant="10" id="l9D-ql-NEE"/>
+                                <constraint firstAttribute="trailing" secondItem="MIn-wx-VRv" secondAttribute="trailing" constant="10" id="oeU-ZJ-oIu"/>
+                            </constraints>
+                        </view>
+                    </subviews>
+                    <constraints>
+                        <constraint firstAttribute="trailing" secondItem="sjc-Mb-vRF" secondAttribute="trailing" id="6CU-Oe-GcL"/>
+                        <constraint firstItem="sjc-Mb-vRF" firstAttribute="leading" secondItem="ItQ-MM-354" secondAttribute="leading" id="Jxl-el-atj"/>
+                        <constraint firstItem="sjc-Mb-vRF" firstAttribute="top" secondItem="ItQ-MM-354" secondAttribute="top" id="Ztq-dZ-x0S"/>
+                        <constraint firstAttribute="bottom" secondItem="sjc-Mb-vRF" secondAttribute="bottom" id="ho0-5G-JhI"/>
+                    </constraints>
+                    <connections>
+                        <outlet property="delegate" destination="-1" id="m00-Sf-E1X"/>
+                    </connections>
+                </scrollView>
+                <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="UYj-Dg-lEo" userLabel="HeaderView" customClass="ParallaxHeaderView" customModule="WallapopMarvel" customModuleProvider="target">
+                    <rect key="frame" x="0.0" y="0.0" width="375" height="220"/>
+                    <subviews>
+                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="1yj-j0-aBL" userLabel="HeaderImageView">
+                            <rect key="frame" x="0.0" y="0.0" width="375" height="220"/>
+                        </imageView>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="64L-xe-fM1">
+                            <rect key="frame" x="10" y="15" width="30" height="49"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="31"/>
+                            <state key="normal" title="&lt;">
+                                <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </state>
+                        </button>
+                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor." lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="B3x-WP-Pm4" userLabel="Title">
+                            <rect key="frame" x="15" y="170.5" width="345" height="44.5"/>
+                            <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="19"/>
+                            <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                    </subviews>
+                    <color key="backgroundColor" red="0.33333333333333331" green="0.33333333333333331" blue="0.33333333333333331" alpha="1" colorSpace="calibratedRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="trailing" secondItem="B3x-WP-Pm4" secondAttribute="trailing" constant="15" id="3bx-1v-1jZ"/>
+                        <constraint firstItem="B3x-WP-Pm4" firstAttribute="leading" secondItem="UYj-Dg-lEo" secondAttribute="leading" constant="15" id="3lW-Vf-aWz"/>
+                        <constraint firstAttribute="height" constant="220" id="49d-MX-tbj"/>
+                        <constraint firstItem="64L-xe-fM1" firstAttribute="top" secondItem="UYj-Dg-lEo" secondAttribute="top" constant="15" id="A8L-6K-Plb"/>
+                        <constraint firstItem="1yj-j0-aBL" firstAttribute="leading" secondItem="UYj-Dg-lEo" secondAttribute="leading" id="NOg-gO-LYK"/>
+                        <constraint firstAttribute="bottom" secondItem="1yj-j0-aBL" secondAttribute="bottom" id="XhJ-Dk-VaH"/>
+                        <constraint firstItem="1yj-j0-aBL" firstAttribute="top" secondItem="UYj-Dg-lEo" secondAttribute="top" id="ZV1-17-3Bu"/>
+                        <constraint firstItem="64L-xe-fM1" firstAttribute="leading" secondItem="UYj-Dg-lEo" secondAttribute="leading" constant="10" id="c02-pg-11d"/>
+                        <constraint firstAttribute="trailing" secondItem="1yj-j0-aBL" secondAttribute="trailing" id="d7n-wF-spU"/>
+                        <constraint firstAttribute="bottom" secondItem="B3x-WP-Pm4" secondAttribute="bottom" constant="5" id="pxl-fy-4qK"/>
+                    </constraints>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="number" keyPath="minimumBarHeight">
+                            <real key="value" value="64"/>
+                        </userDefinedRuntimeAttribute>
+                        <userDefinedRuntimeAttribute type="number" keyPath="baseHeightScreen">
+                            <real key="value" value="220"/>
+                        </userDefinedRuntimeAttribute>
+                    </userDefinedRuntimeAttributes>
+                    <connections>
+                        <outlet property="heightConstraint" destination="49d-MX-tbj" id="lbt-Gw-JbO"/>
+                        <outlet property="scrollView" destination="ItQ-MM-354" id="Pyi-H0-S0Y"/>
+                    </connections>
+                </view>
+            </subviews>
+            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="sjc-Mb-vRF" firstAttribute="width" secondItem="i5M-Pr-FkT" secondAttribute="width" id="7kk-fh-5km"/>
+                <constraint firstItem="UYj-Dg-lEo" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="WSs-yL-lbr"/>
+                <constraint firstItem="ItQ-MM-354" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="eOt-L1-iLV"/>
+                <constraint firstItem="ItQ-MM-354" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="fWh-ph-Pnr"/>
+                <constraint firstAttribute="trailing" secondItem="ItQ-MM-354" secondAttribute="trailing" id="owf-YW-pFI"/>
+                <constraint firstAttribute="trailing" secondItem="UYj-Dg-lEo" secondAttribute="trailing" id="pFH-sx-aiP"/>
+                <constraint firstAttribute="bottom" secondItem="ItQ-MM-354" secondAttribute="bottom" id="tqz-5s-GiO"/>
+                <constraint firstItem="UYj-Dg-lEo" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="wKK-3E-Vlh"/>
+            </constraints>
+        </view>
+    </objects>
+</document>

@@ -31,6 +31,9 @@
 		4121CA201EC48CB800062D37 /* ComicCoverCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4121CA1E1EC48CB800062D37 /* ComicCoverCollectionViewCell.swift */; };
 		4121CA211EC48CB800062D37 /* ComicCoverCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4121CA1F1EC48CB800062D37 /* ComicCoverCollectionViewCell.xib */; };
 		4121CA241EC4A3AA00062D37 /* Strings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4121CA231EC4A3AA00062D37 /* Strings.swift */; };
+		4121CA271EC4A7E000062D37 /* ComicDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4121CA251EC4A7E000062D37 /* ComicDetailViewController.swift */; };
+		4121CA281EC4A7E000062D37 /* ComicDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4121CA261EC4A7E000062D37 /* ComicDetailViewController.xib */; };
+		4121CA2B1EC4A8F500062D37 /* ParallaxHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4121CA2A1EC4A8F500062D37 /* ParallaxHeaderView.swift */; };
 		41CF1F591E41FEA0009CCA34 /* ReactiveCocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 41CF1F561E41FEA0009CCA34 /* ReactiveCocoa.framework */; };
 		41CF1F5A1E41FEA0009CCA34 /* ReactiveSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 41CF1F571E41FEA0009CCA34 /* ReactiveSwift.framework */; };
 		41CF1F5B1E41FEA0009CCA34 /* Result.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 41CF1F581E41FEA0009CCA34 /* Result.framework */; };
@@ -96,6 +99,9 @@
 		4121CA1E1EC48CB800062D37 /* ComicCoverCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ComicCoverCollectionViewCell.swift; path = ../Views/ComicCoverCollectionViewCell.swift; sourceTree = "<group>"; };
 		4121CA1F1EC48CB800062D37 /* ComicCoverCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ComicCoverCollectionViewCell.xib; sourceTree = "<group>"; };
 		4121CA231EC4A3AA00062D37 /* Strings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Strings.swift; sourceTree = "<group>"; };
+		4121CA251EC4A7E000062D37 /* ComicDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ComicDetailViewController.swift; sourceTree = "<group>"; };
+		4121CA261EC4A7E000062D37 /* ComicDetailViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = ComicDetailViewController.xib; path = ../Controllers/ComicDetailViewController.xib; sourceTree = "<group>"; };
+		4121CA2A1EC4A8F500062D37 /* ParallaxHeaderView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ParallaxHeaderView.swift; sourceTree = "<group>"; };
 		41CF1F561E41FEA0009CCA34 /* ReactiveCocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ReactiveCocoa.framework; path = Carthage/Build/iOS/ReactiveCocoa.framework; sourceTree = "<group>"; };
 		41CF1F571E41FEA0009CCA34 /* ReactiveSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ReactiveSwift.framework; path = Carthage/Build/iOS/ReactiveSwift.framework; sourceTree = "<group>"; };
 		41CF1F581E41FEA0009CCA34 /* Result.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Result.framework; path = Carthage/Build/iOS/Result.framework; sourceTree = "<group>"; };
@@ -209,6 +215,14 @@
 			path = Constants;
 			sourceTree = "<group>";
 		};
+		4121CA291EC4A8C600062D37 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				4121CA2A1EC4A8F500062D37 /* ParallaxHeaderView.swift */,
+			);
+			name = Views;
+			sourceTree = "<group>";
+		};
 		4D3C1F0A5A104F5491A5DA85 /* Protocols */ = {
 			isa = PBXGroup;
 			children = (
@@ -243,11 +257,13 @@
 		5F8CD8801CD044718D4A8C02 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				4121CA291EC4A8C600062D37 /* Views */,
 				4121CA1B1EC48C8F00062D37 /* Cells */,
 				74AF5450F820AF3F3A02545D /* AppDelegate.swift */,
 				4121C9FF1EC4331000062D37 /* AppCoordinator.swift */,
 				4121CA011EC433FD00062D37 /* Router.swift */,
 				4121CA051EC4354100062D37 /* ComicCoversViewController.swift */,
+				4121CA251EC4A7E000062D37 /* ComicDetailViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -343,6 +359,7 @@
 			children = (
 				4121CA1A1EC48C8800062D37 /* Cells */,
 				4121CA061EC4354100062D37 /* ComicCoversViewController.xib */,
+				4121CA261EC4A7E000062D37 /* ComicDetailViewController.xib */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -442,6 +459,7 @@
 				9495297B22BFA74C15A528C9 /* Images.xcassets in Resources */,
 				4121C9E91EC39C6300062D37 /* Localizable.strings in Resources */,
 				4121CA081EC4354100062D37 /* ComicCoversViewController.xib in Resources */,
+				4121CA281EC4A7E000062D37 /* ComicDetailViewController.xib in Resources */,
 				4121CA211EC48CB800062D37 /* ComicCoverCollectionViewCell.xib in Resources */,
 				2FA84687643246837B8BC6FB /* LaunchScreen.xib in Resources */,
 			);
@@ -525,8 +543,10 @@
 				4121CA201EC48CB800062D37 /* ComicCoverCollectionViewCell.swift in Sources */,
 				4121CA001EC4331000062D37 /* AppCoordinator.swift in Sources */,
 				4121CA0A1EC4363100062D37 /* ComicCoversViewModel.swift in Sources */,
+				4121CA271EC4A7E000062D37 /* ComicDetailViewController.swift in Sources */,
 				41CF1F651E420BAB009CCA34 /* main.swift in Sources */,
 				4121CA071EC4354100062D37 /* ComicCoversViewController.swift in Sources */,
+				4121CA2B1EC4A8F500062D37 /* ParallaxHeaderView.swift in Sources */,
 				4121CA0F1EC438D700062D37 /* InMemoryDataSource.swift in Sources */,
 				4121CA111EC4390000062D37 /* Comic.swift in Sources */,
 				4121CA0D1EC436C800062D37 /* ComicCoversDataSource.swift in Sources */,
