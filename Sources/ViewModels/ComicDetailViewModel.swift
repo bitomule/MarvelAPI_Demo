@@ -49,8 +49,8 @@ final class ComicDetailViewModel:ComicDetailViewModelType,ComicDetailInput,Comic
     
     description <~ comic.map{$0?.description}
     
-    imageUrl <~ comic.producer.skipNil().map{$0.thumbnail}.skipNil().map({ thumbnailUrl -> URL? in
-      return URL(string: thumbnailUrl)
+    imageUrl <~ comic.producer.skipNil().map{$0.cover}.skipNil().map({ coverUrl -> URL? in
+      return URL(string: coverUrl)
     })
     
   }
