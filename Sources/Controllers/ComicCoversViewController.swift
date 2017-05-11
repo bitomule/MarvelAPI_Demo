@@ -92,3 +92,10 @@ extension ComicCoversViewController:UICollectionViewDelegateFlowLayout{
   
 }
 
+extension ComicCoversViewController:UIScrollViewDelegate{
+  func scrollViewDidScroll(_ scrollView: UIScrollView) {
+    if scrollView.isCloseToBottom(margin: scrollView.bounds.height * 0.3){
+      viewModel.inputs.loadMore()
+    }
+  }
+}

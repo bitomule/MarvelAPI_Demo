@@ -43,6 +43,7 @@
 		4121CA391EC4E6D600062D37 /* keys.plist in Resources */ = {isa = PBXBuildFile; fileRef = 4121CA381EC4E6D600062D37 /* keys.plist */; };
 		4121CA3B1EC4F1B400062D37 /* MarvelHashGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4121CA3A1EC4F1B400062D37 /* MarvelHashGenerator.swift */; };
 		4121CA3D1EC4F63D00062D37 /* CryptoSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4121CA3C1EC4F63D00062D37 /* CryptoSwift.framework */; };
+		4121CA3F1EC4FC8F00062D37 /* ScrollView+Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4121CA3E1EC4FC8F00062D37 /* ScrollView+Helpers.swift */; };
 		41CF1F591E41FEA0009CCA34 /* ReactiveCocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 41CF1F561E41FEA0009CCA34 /* ReactiveCocoa.framework */; };
 		41CF1F5A1E41FEA0009CCA34 /* ReactiveSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 41CF1F571E41FEA0009CCA34 /* ReactiveSwift.framework */; };
 		41CF1F5B1E41FEA0009CCA34 /* Result.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 41CF1F581E41FEA0009CCA34 /* Result.framework */; };
@@ -120,6 +121,7 @@
 		4121CA381EC4E6D600062D37 /* keys.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = keys.plist; sourceTree = "<group>"; };
 		4121CA3A1EC4F1B400062D37 /* MarvelHashGenerator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MarvelHashGenerator.swift; sourceTree = "<group>"; };
 		4121CA3C1EC4F63D00062D37 /* CryptoSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CryptoSwift.framework; path = Carthage/Build/iOS/CryptoSwift.framework; sourceTree = "<group>"; };
+		4121CA3E1EC4FC8F00062D37 /* ScrollView+Helpers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "ScrollView+Helpers.swift"; sourceTree = "<group>"; };
 		41CF1F561E41FEA0009CCA34 /* ReactiveCocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ReactiveCocoa.framework; path = Carthage/Build/iOS/ReactiveCocoa.framework; sourceTree = "<group>"; };
 		41CF1F571E41FEA0009CCA34 /* ReactiveSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ReactiveSwift.framework; path = Carthage/Build/iOS/ReactiveSwift.framework; sourceTree = "<group>"; };
 		41CF1F581E41FEA0009CCA34 /* Result.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Result.framework; path = Carthage/Build/iOS/Result.framework; sourceTree = "<group>"; };
@@ -265,6 +267,7 @@
 			children = (
 				4121CA031EC4343700062D37 /* NavigationController+Completion.swift */,
 				4121CA361EC4D2CB00062D37 /* ReactiveSwift+Helpers.swift */,
+				4121CA3E1EC4FC8F00062D37 /* ScrollView+Helpers.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -583,6 +586,7 @@
 				4121CA2B1EC4A8F500062D37 /* ParallaxHeaderView.swift in Sources */,
 				4121CA371EC4D2CB00062D37 /* ReactiveSwift+Helpers.swift in Sources */,
 				4121CA331EC4CC8000062D37 /* MarvelAPIDataSource.swift in Sources */,
+				4121CA3F1EC4FC8F00062D37 /* ScrollView+Helpers.swift in Sources */,
 				4121CA0F1EC438D700062D37 /* InMemoryDataSource.swift in Sources */,
 				4121CA111EC4390000062D37 /* Comic.swift in Sources */,
 				4121CA0D1EC436C800062D37 /* ComicCoversDataSource.swift in Sources */,
