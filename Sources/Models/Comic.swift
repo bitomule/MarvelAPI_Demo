@@ -16,12 +16,11 @@ struct Comic{
   let description:String
   let pageCount:Int
   let thumbnail:String?
-  let images:[String]
+  let cover:String?
 }
 
 extension Comic:Decodable{
   init?(json: JSON) {
-    print(json)
     guard
       let id:Int = "id" <~~ json,
       let title:String = "title" <~~ json,
@@ -33,7 +32,13 @@ extension Comic:Decodable{
     self.description = ("description" <~~ json) ?? ""
     self.issueNumber = issueNumber
     self.pageCount = pageCount
-    self.thumbnail = "thumbnail.path" <~~ json
-    self.images = ("images" <~~ json) ?? []
+    if let thumbnail:String = "thumbnail.path" <~~ json,
+    let imageExtension:String = "thumbnail.extension" <~~ json{
+      self.thumbnail = "\(thumbnail)/portrait_incredible.\(imageExtension)"
+      self.cover = "\(thumbnail)/detail.\(imageExtension)"
+    }else{
+      self.thumbnail = nil
+      self.cover = nil
+    }
   }
 }
