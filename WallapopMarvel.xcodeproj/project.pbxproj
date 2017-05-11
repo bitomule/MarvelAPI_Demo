@@ -21,6 +21,12 @@
 		4121CA001EC4331000062D37 /* AppCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4121C9FF1EC4331000062D37 /* AppCoordinator.swift */; };
 		4121CA021EC433FD00062D37 /* Router.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4121CA011EC433FD00062D37 /* Router.swift */; };
 		4121CA041EC4343700062D37 /* NavigationController+Completion.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4121CA031EC4343700062D37 /* NavigationController+Completion.swift */; };
+		4121CA071EC4354100062D37 /* ComicCoversViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4121CA051EC4354100062D37 /* ComicCoversViewController.swift */; };
+		4121CA081EC4354100062D37 /* ComicCoversViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4121CA061EC4354100062D37 /* ComicCoversViewController.xib */; };
+		4121CA0A1EC4363100062D37 /* ComicCoversViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4121CA091EC4363100062D37 /* ComicCoversViewModel.swift */; };
+		4121CA0D1EC436C800062D37 /* ComicCoversDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4121CA0C1EC436C800062D37 /* ComicCoversDataSource.swift */; };
+		4121CA0F1EC438D700062D37 /* InMemoryDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4121CA0E1EC438D700062D37 /* InMemoryDataSource.swift */; };
+		4121CA111EC4390000062D37 /* Comic.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4121CA101EC4390000062D37 /* Comic.swift */; };
 		41CF1F591E41FEA0009CCA34 /* ReactiveCocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 41CF1F561E41FEA0009CCA34 /* ReactiveCocoa.framework */; };
 		41CF1F5A1E41FEA0009CCA34 /* ReactiveSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 41CF1F571E41FEA0009CCA34 /* ReactiveSwift.framework */; };
 		41CF1F5B1E41FEA0009CCA34 /* Result.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 41CF1F581E41FEA0009CCA34 /* Result.framework */; };
@@ -76,6 +82,12 @@
 		4121C9FF1EC4331000062D37 /* AppCoordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppCoordinator.swift; sourceTree = "<group>"; };
 		4121CA011EC433FD00062D37 /* Router.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Router.swift; sourceTree = "<group>"; };
 		4121CA031EC4343700062D37 /* NavigationController+Completion.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NavigationController+Completion.swift"; sourceTree = "<group>"; };
+		4121CA051EC4354100062D37 /* ComicCoversViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ComicCoversViewController.swift; sourceTree = "<group>"; };
+		4121CA061EC4354100062D37 /* ComicCoversViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = ComicCoversViewController.xib; path = ../Controllers/ComicCoversViewController.xib; sourceTree = "<group>"; };
+		4121CA091EC4363100062D37 /* ComicCoversViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ComicCoversViewModel.swift; sourceTree = "<group>"; };
+		4121CA0C1EC436C800062D37 /* ComicCoversDataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ComicCoversDataSource.swift; sourceTree = "<group>"; };
+		4121CA0E1EC438D700062D37 /* InMemoryDataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InMemoryDataSource.swift; sourceTree = "<group>"; };
+		4121CA101EC4390000062D37 /* Comic.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Comic.swift; sourceTree = "<group>"; };
 		41CF1F561E41FEA0009CCA34 /* ReactiveCocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ReactiveCocoa.framework; path = Carthage/Build/iOS/ReactiveCocoa.framework; sourceTree = "<group>"; };
 		41CF1F571E41FEA0009CCA34 /* ReactiveSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ReactiveSwift.framework; path = Carthage/Build/iOS/ReactiveSwift.framework; sourceTree = "<group>"; };
 		41CF1F581E41FEA0009CCA34 /* Result.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Result.framework; path = Carthage/Build/iOS/Result.framework; sourceTree = "<group>"; };
@@ -125,6 +137,7 @@
 		2B2D811292B3FABAAF7E0D39 /* Sources */ = {
 			isa = PBXGroup;
 			children = (
+				4121CA0B1EC436B100062D37 /* DataSources */,
 				58B01E1388BDDAD849B6F54F /* Extensions */,
 				4D3C1F0A5A104F5491A5DA85 /* Protocols */,
 				A5E9E3DA8264605AEFDF8568 /* Models */,
@@ -153,6 +166,15 @@
 				1C46190FA71984CC3B64E7B4 /* Info.plist */,
 			);
 			path = Resources;
+			sourceTree = "<group>";
+		};
+		4121CA0B1EC436B100062D37 /* DataSources */ = {
+			isa = PBXGroup;
+			children = (
+				4121CA0C1EC436C800062D37 /* ComicCoversDataSource.swift */,
+				4121CA0E1EC438D700062D37 /* InMemoryDataSource.swift */,
+			);
+			name = DataSources;
 			sourceTree = "<group>";
 		};
 		4D3C1F0A5A104F5491A5DA85 /* Protocols */ = {
@@ -192,6 +214,7 @@
 				74AF5450F820AF3F3A02545D /* AppDelegate.swift */,
 				4121C9FF1EC4331000062D37 /* AppCoordinator.swift */,
 				4121CA011EC433FD00062D37 /* Router.swift */,
+				4121CA051EC4354100062D37 /* ComicCoversViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -267,6 +290,7 @@
 		A5E9E3DA8264605AEFDF8568 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				4121CA101EC4390000062D37 /* Comic.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -274,6 +298,7 @@
 		B2069C30143E6639895431CC /* ViewModels */ = {
 			isa = PBXGroup;
 			children = (
+				4121CA091EC4363100062D37 /* ComicCoversViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -281,6 +306,7 @@
 		D3E6143C1D22A763102A1183 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				4121CA061EC4354100062D37 /* ComicCoversViewController.xib */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -379,6 +405,7 @@
 			files = (
 				9495297B22BFA74C15A528C9 /* Images.xcassets in Resources */,
 				4121C9E91EC39C6300062D37 /* Localizable.strings in Resources */,
+				4121CA081EC4354100062D37 /* ComicCoversViewController.xib in Resources */,
 				2FA84687643246837B8BC6FB /* LaunchScreen.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -458,7 +485,12 @@
 				4121CA041EC4343700062D37 /* NavigationController+Completion.swift in Sources */,
 				4121CA021EC433FD00062D37 /* Router.swift in Sources */,
 				4121CA001EC4331000062D37 /* AppCoordinator.swift in Sources */,
+				4121CA0A1EC4363100062D37 /* ComicCoversViewModel.swift in Sources */,
 				41CF1F651E420BAB009CCA34 /* main.swift in Sources */,
+				4121CA071EC4354100062D37 /* ComicCoversViewController.swift in Sources */,
+				4121CA0F1EC438D700062D37 /* InMemoryDataSource.swift in Sources */,
+				4121CA111EC4390000062D37 /* Comic.swift in Sources */,
+				4121CA0D1EC436C800062D37 /* ComicCoversDataSource.swift in Sources */,
 				E240F77D45ED5ACE1B723036 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
