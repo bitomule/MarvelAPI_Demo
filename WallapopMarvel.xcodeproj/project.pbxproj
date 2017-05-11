@@ -40,6 +40,7 @@
 		4121CA331EC4CC8000062D37 /* MarvelAPIDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4121CA321EC4CC8000062D37 /* MarvelAPIDataSource.swift */; };
 		4121CA351EC4D1B400062D37 /* DataSourceError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4121CA341EC4D1B400062D37 /* DataSourceError.swift */; };
 		4121CA371EC4D2CB00062D37 /* ReactiveSwift+Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4121CA361EC4D2CB00062D37 /* ReactiveSwift+Helpers.swift */; };
+		4121CA391EC4E6D600062D37 /* keys.plist in Resources */ = {isa = PBXBuildFile; fileRef = 4121CA381EC4E6D600062D37 /* keys.plist */; };
 		41CF1F591E41FEA0009CCA34 /* ReactiveCocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 41CF1F561E41FEA0009CCA34 /* ReactiveCocoa.framework */; };
 		41CF1F5A1E41FEA0009CCA34 /* ReactiveSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 41CF1F571E41FEA0009CCA34 /* ReactiveSwift.framework */; };
 		41CF1F5B1E41FEA0009CCA34 /* Result.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 41CF1F581E41FEA0009CCA34 /* Result.framework */; };
@@ -114,6 +115,7 @@
 		4121CA321EC4CC8000062D37 /* MarvelAPIDataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MarvelAPIDataSource.swift; sourceTree = "<group>"; };
 		4121CA341EC4D1B400062D37 /* DataSourceError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataSourceError.swift; sourceTree = "<group>"; };
 		4121CA361EC4D2CB00062D37 /* ReactiveSwift+Helpers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "ReactiveSwift+Helpers.swift"; sourceTree = "<group>"; };
+		4121CA381EC4E6D600062D37 /* keys.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = keys.plist; sourceTree = "<group>"; };
 		41CF1F561E41FEA0009CCA34 /* ReactiveCocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ReactiveCocoa.framework; path = Carthage/Build/iOS/ReactiveCocoa.framework; sourceTree = "<group>"; };
 		41CF1F571E41FEA0009CCA34 /* ReactiveSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ReactiveSwift.framework; path = Carthage/Build/iOS/ReactiveSwift.framework; sourceTree = "<group>"; };
 		41CF1F581E41FEA0009CCA34 /* Result.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Result.framework; path = Carthage/Build/iOS/Result.framework; sourceTree = "<group>"; };
@@ -296,6 +298,7 @@
 			isa = PBXGroup;
 			children = (
 				728E193911D9B3956F2730E0 /* Info.plist */,
+				4121CA381EC4E6D600062D37 /* keys.plist */,
 			);
 			path = "Other-Sources";
 			sourceTree = "<group>";
@@ -474,6 +477,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4121CA391EC4E6D600062D37 /* keys.plist in Resources */,
 				9495297B22BFA74C15A528C9 /* Images.xcassets in Resources */,
 				4121C9E91EC39C6300062D37 /* Localizable.strings in Resources */,
 				4121CA081EC4354100062D37 /* ComicCoversViewController.xib in Resources */,

@@ -33,3 +33,7 @@ build/
 # AppCode specific files
 .idea/
 *.iml
+
+# API keys
+
+*keys.plist
