@@ -19,6 +19,8 @@
 		4121C9FD1EC3A5A400062D37 /* ReactiveMoyaGloss.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4121C9F41EC3A5A400062D37 /* ReactiveMoyaGloss.framework */; };
 		4121C9FE1EC3A5A400062D37 /* Reusable.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4121C9F51EC3A5A400062D37 /* Reusable.framework */; };
 		4121CA001EC4331000062D37 /* AppCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4121C9FF1EC4331000062D37 /* AppCoordinator.swift */; };
+		4121CA021EC433FD00062D37 /* Router.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4121CA011EC433FD00062D37 /* Router.swift */; };
+		4121CA041EC4343700062D37 /* NavigationController+Completion.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4121CA031EC4343700062D37 /* NavigationController+Completion.swift */; };
 		41CF1F591E41FEA0009CCA34 /* ReactiveCocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 41CF1F561E41FEA0009CCA34 /* ReactiveCocoa.framework */; };
 		41CF1F5A1E41FEA0009CCA34 /* ReactiveSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 41CF1F571E41FEA0009CCA34 /* ReactiveSwift.framework */; };
 		41CF1F5B1E41FEA0009CCA34 /* Result.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 41CF1F581E41FEA0009CCA34 /* Result.framework */; };
@@ -72,6 +74,8 @@
 		4121C9F41EC3A5A400062D37 /* ReactiveMoyaGloss.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ReactiveMoyaGloss.framework; path = Carthage/Build/iOS/ReactiveMoyaGloss.framework; sourceTree = "<group>"; };
 		4121C9F51EC3A5A400062D37 /* Reusable.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Reusable.framework; path = Carthage/Build/iOS/Reusable.framework; sourceTree = "<group>"; };
 		4121C9FF1EC4331000062D37 /* AppCoordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppCoordinator.swift; sourceTree = "<group>"; };
+		4121CA011EC433FD00062D37 /* Router.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Router.swift; sourceTree = "<group>"; };
+		4121CA031EC4343700062D37 /* NavigationController+Completion.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NavigationController+Completion.swift"; sourceTree = "<group>"; };
 		41CF1F561E41FEA0009CCA34 /* ReactiveCocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ReactiveCocoa.framework; path = Carthage/Build/iOS/ReactiveCocoa.framework; sourceTree = "<group>"; };
 		41CF1F571E41FEA0009CCA34 /* ReactiveSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ReactiveSwift.framework; path = Carthage/Build/iOS/ReactiveSwift.framework; sourceTree = "<group>"; };
 		41CF1F581E41FEA0009CCA34 /* Result.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Result.framework; path = Carthage/Build/iOS/Result.framework; sourceTree = "<group>"; };
@@ -168,6 +172,7 @@
 		58B01E1388BDDAD849B6F54F /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
+				4121CA031EC4343700062D37 /* NavigationController+Completion.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -186,6 +191,7 @@
 			children = (
 				74AF5450F820AF3F3A02545D /* AppDelegate.swift */,
 				4121C9FF1EC4331000062D37 /* AppCoordinator.swift */,
+				4121CA011EC433FD00062D37 /* Router.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -449,6 +455,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4121CA041EC4343700062D37 /* NavigationController+Completion.swift in Sources */,
+				4121CA021EC433FD00062D37 /* Router.swift in Sources */,
 				4121CA001EC4331000062D37 /* AppCoordinator.swift in Sources */,
 				41CF1F651E420BAB009CCA34 /* main.swift in Sources */,
 				E240F77D45ED5ACE1B723036 /* AppDelegate.swift in Sources */,
