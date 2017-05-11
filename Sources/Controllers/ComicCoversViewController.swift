@@ -86,7 +86,7 @@ extension ComicCoversViewController:UICollectionViewDelegateFlowLayout{
   
   func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
     collectionView.deselectItem(at: indexPath, animated: true)
-    appCoordinator.router.navigate(from: self, to: Routes.comicDetail, style: .push).start()
+    appCoordinator.router.navigate(from: self, to: Routes.comicDetail(comicId:viewModel.outputs.itemAt(index: indexPath.row).id), style: .push).start()
   }
   
 }

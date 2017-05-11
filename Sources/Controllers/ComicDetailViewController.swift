@@ -7,11 +7,22 @@
 //
 
 import UIKit
+import ReactiveCocoa
+import ReactiveSwift
+import Kingfisher
 
 class ComicDetailViewController: UIViewController {
   
   @IBOutlet weak var header: ParallaxHeaderView!
   @IBOutlet weak var backButton: UIButton!
+  @IBOutlet weak var headerImageView: UIImageView!
+  @IBOutlet weak var titleLabel: UILabel!
+  @IBOutlet weak var descriptionTextView: UITextView!
+  
+  
+  @IBAction func backButtonPressed(_ sender: Any) {
+    self.navigationController?.popViewController(animated: true)
+  }
   
   let appCoordinator:AppCoordinatorType
   let viewModel:ComicDetailViewModelType
@@ -29,6 +40,15 @@ class ComicDetailViewController: UIViewController {
   override func viewDidLoad() {
     super.viewDidLoad()
     header.delegate = self
+    
+    descriptionTextView.reactive.text <~ viewModel.outputs.description
+    titleLabel.reactive.text <~ viewModel.outputs.title
+    
+    viewModel.outputs.imageUrl.producer.startWithValues {[weak self] url in
+      guard let url = url else {return}
+      self?.headerImageView.kf.cancelDownloadTask()
+      self?.headerImageView.kf.setImage(with: url)
+    }
   }
   
   override func viewWillAppear(_ animated: Bool) {

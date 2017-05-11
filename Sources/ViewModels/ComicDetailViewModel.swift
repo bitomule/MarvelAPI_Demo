@@ -10,7 +10,9 @@ import ReactiveSwift
 import Result
 
 protocol ComicDetailOutput{
-
+  var title:MutableProperty<String?> {get}
+  var description:MutableProperty<String?> {get}
+  var imageUrl:MutableProperty<URL?> {get}
 }
 
 protocol ComicDetailInput{
@@ -29,16 +31,27 @@ final class ComicDetailViewModel:ComicDetailViewModelType,ComicDetailInput,Comic
   var outputs: ComicDetailOutput { return self }
   
   // Outputs
-  
+  let title:MutableProperty<String?> = MutableProperty(nil)
+  let description:MutableProperty<String?> = MutableProperty(nil)
+  let imageUrl:MutableProperty<URL?> = MutableProperty(nil)
   
   //Inputs
   
+  let comic:MutableProperty<Comic?> = MutableProperty(nil)
   let dataSource:ComicDetailDataSource
   
-  init(dataSource:ComicDetailDataSource = InMemoryDataSource()){
+  init(comicId:Int,dataSource:ComicDetailDataSource = InMemoryDataSource()){
     self.dataSource = dataSource
     
+    comic <~ dataSource.getComic(id: comicId)
     
+    title <~ comic.map{$0?.title}
+    
+    description <~ comic.map{$0?.description}
+    
+    imageUrl <~ comic.producer.skipNil().map{$0.thumbnail}.skipNil().map({ thumbnailUrl -> URL? in
+      return URL(string: thumbnailUrl)
+    })
     
   }
 }

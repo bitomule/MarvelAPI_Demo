@@ -12,7 +12,10 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ComicDetailViewController" customModule="WallapopMarvel" customModuleProvider="target">
             <connections>
                 <outlet property="backButton" destination="64L-xe-fM1" id="zgS-G1-yTn"/>
+                <outlet property="descriptionTextView" destination="MIn-wx-VRv" id="Zcb-EA-mwg"/>
                 <outlet property="header" destination="UYj-Dg-lEo" id="aVo-YZ-9C9"/>
+                <outlet property="headerImageView" destination="1yj-j0-aBL" id="DMJ-1G-QuY"/>
+                <outlet property="titleLabel" destination="B3x-WP-Pm4" id="aR9-oI-Ikh"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -25,13 +28,13 @@
                     <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                     <subviews>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="sjc-Mb-vRF">
-                            <rect key="frame" x="0.0" y="0.0" width="375" height="924"/>
+                            <rect key="frame" x="0.0" y="0.0" width="375" height="503"/>
                             <subviews>
                                 <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" editable="NO" textAlignment="natural" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MIn-wx-VRv">
-                                    <rect key="frame" x="10" y="10" width="355" height="904"/>
+                                    <rect key="frame" x="10" y="10" width="355" height="483"/>
                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                     <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
-                                    <fontDescription key="fontDescription" type="system" pointSize="31"/>
+                                    <fontDescription key="fontDescription" type="system" pointSize="23"/>
                                     <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                 </textView>
                             </subviews>
@@ -66,6 +69,9 @@
                             <state key="normal" title="&lt;">
                                 <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </state>
+                            <connections>
+                                <action selector="backButtonPressed:" destination="-1" eventType="touchUpInside" id="5cy-PP-t8X"/>
+                            </connections>
                         </button>
                         <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor." lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="B3x-WP-Pm4" userLabel="Title">
                             <rect key="frame" x="15" y="170.5" width="345" height="44.5"/>
