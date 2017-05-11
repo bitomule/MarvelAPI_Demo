@@ -27,6 +27,7 @@
 		4121CA0D1EC436C800062D37 /* ComicCoversDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4121CA0C1EC436C800062D37 /* ComicCoversDataSource.swift */; };
 		4121CA0F1EC438D700062D37 /* InMemoryDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4121CA0E1EC438D700062D37 /* InMemoryDataSource.swift */; };
 		4121CA111EC4390000062D37 /* Comic.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4121CA101EC4390000062D37 /* Comic.swift */; };
+		4121CA151EC43BA900062D37 /* ComicCoversViewModelSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4121CA141EC43BA900062D37 /* ComicCoversViewModelSpec.swift */; };
 		41CF1F591E41FEA0009CCA34 /* ReactiveCocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 41CF1F561E41FEA0009CCA34 /* ReactiveCocoa.framework */; };
 		41CF1F5A1E41FEA0009CCA34 /* ReactiveSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 41CF1F571E41FEA0009CCA34 /* ReactiveSwift.framework */; };
 		41CF1F5B1E41FEA0009CCA34 /* Result.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 41CF1F581E41FEA0009CCA34 /* Result.framework */; };
@@ -88,6 +89,7 @@
 		4121CA0C1EC436C800062D37 /* ComicCoversDataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ComicCoversDataSource.swift; sourceTree = "<group>"; };
 		4121CA0E1EC438D700062D37 /* InMemoryDataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InMemoryDataSource.swift; sourceTree = "<group>"; };
 		4121CA101EC4390000062D37 /* Comic.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Comic.swift; sourceTree = "<group>"; };
+		4121CA141EC43BA900062D37 /* ComicCoversViewModelSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ComicCoversViewModelSpec.swift; sourceTree = "<group>"; };
 		41CF1F561E41FEA0009CCA34 /* ReactiveCocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ReactiveCocoa.framework; path = Carthage/Build/iOS/ReactiveCocoa.framework; sourceTree = "<group>"; };
 		41CF1F571E41FEA0009CCA34 /* ReactiveSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ReactiveSwift.framework; path = Carthage/Build/iOS/ReactiveSwift.framework; sourceTree = "<group>"; };
 		41CF1F581E41FEA0009CCA34 /* Result.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Result.framework; path = Carthage/Build/iOS/Result.framework; sourceTree = "<group>"; };
@@ -250,6 +252,7 @@
 			isa = PBXGroup;
 			children = (
 				F8C3823F1D832BED00FF4F67 /* SampleSpec.swift */,
+				4121CA141EC43BA900062D37 /* ComicCoversViewModelSpec.swift */,
 			);
 			path = Tests;
 			sourceTree = "<group>";
@@ -475,6 +478,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				F8C382401D832BED00FF4F67 /* SampleSpec.swift in Sources */,
+				4121CA151EC43BA900062D37 /* ComicCoversViewModelSpec.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

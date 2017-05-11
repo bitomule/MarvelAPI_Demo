@@ -10,12 +10,12 @@ import ReactiveSwift
 import Result
 
 protocol ComicCoversDataSource{
-  func getComics(title:String?,limit:Int?,offset:Int?)->SignalProducer<[Comic],NoError>
+  func getComics(characters:[String],limit:Int?,offset:Int?)->SignalProducer<[Comic],NoError>
 }
 
 extension InMemoryDataSource:ComicCoversDataSource{
   
-  func getComics(title:String?,limit:Int?,offset:Int?)->SignalProducer<[Comic],NoError>{
+  func getComics(characters:[String],limit:Int?,offset:Int?)->SignalProducer<[Comic],NoError>{
     return SignalProducer({ observer, _ in
       observer.send(value: inMemoryComics)
     })
