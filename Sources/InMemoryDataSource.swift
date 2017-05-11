@@ -6,10 +6,32 @@
 //  Copyright © 2017 bitomule. All rights reserved.
 //
 
-import Foundation
+import ReactiveSwift
+import Result
 
 final class InMemoryDataSource{
   
+}
+
+
+extension InMemoryDataSource:ComicCoversDataSource{
+  
+  func getComics(characters:[String],limit:Int?,offset:Int?)->SignalProducer<[Comic],DataSourceError>{
+    return SignalProducer({ observer, _ in
+      observer.send(value: inMemoryComics)
+    })
+  }
+}
+
+extension InMemoryDataSource:ComicDetailDataSource{
+  
+  func getComic(id:Int)->SignalProducer<Comic,DataSourceError>{
+    return SignalProducer({ observer, _ in
+      if let comic = inMemoryComics.first(where: {$0.id == id}){
+        observer.send(value: comic)
+      }
+    })
+  }
 }
 
 let inMemoryComics = [

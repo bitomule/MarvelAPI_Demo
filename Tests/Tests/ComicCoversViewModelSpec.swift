@@ -7,9 +7,9 @@ import Result
 
 private class FakeDataSource:ComicCoversDataSource{
   
-  var fakeResponse:(([String],Int?,Int?)->SignalProducer<[Comic],NoError>)?
+  var fakeResponse:(([String],Int?,Int?)->SignalProducer<[Comic],DataSourceError>)?
   
-  func getComics(characters:[String],limit:Int?,offset:Int?)->SignalProducer<[Comic],NoError>{
+  func getComics(characters:[String],limit:Int?,offset:Int?)->SignalProducer<[Comic],DataSourceError>{
     return fakeResponse?(characters, limit, offset) ?? SignalProducer.empty
   }
 }

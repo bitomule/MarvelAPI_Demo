@@ -37,6 +37,9 @@
 		4121CA2D1EC4BDCA00062D37 /* ComicDetailDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4121CA2C1EC4BDCA00062D37 /* ComicDetailDataSource.swift */; };
 		4121CA2F1EC4BE5100062D37 /* ComicDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4121CA2E1EC4BE5100062D37 /* ComicDetailViewModel.swift */; };
 		4121CA311EC4BF1500062D37 /* ComicDetailViewModelSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4121CA301EC4BF1500062D37 /* ComicDetailViewModelSpec.swift */; };
+		4121CA331EC4CC8000062D37 /* MarvelAPIDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4121CA321EC4CC8000062D37 /* MarvelAPIDataSource.swift */; };
+		4121CA351EC4D1B400062D37 /* DataSourceError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4121CA341EC4D1B400062D37 /* DataSourceError.swift */; };
+		4121CA371EC4D2CB00062D37 /* ReactiveSwift+Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4121CA361EC4D2CB00062D37 /* ReactiveSwift+Helpers.swift */; };
 		41CF1F591E41FEA0009CCA34 /* ReactiveCocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 41CF1F561E41FEA0009CCA34 /* ReactiveCocoa.framework */; };
 		41CF1F5A1E41FEA0009CCA34 /* ReactiveSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 41CF1F571E41FEA0009CCA34 /* ReactiveSwift.framework */; };
 		41CF1F5B1E41FEA0009CCA34 /* Result.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 41CF1F581E41FEA0009CCA34 /* Result.framework */; };
@@ -108,6 +111,9 @@
 		4121CA2C1EC4BDCA00062D37 /* ComicDetailDataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ComicDetailDataSource.swift; sourceTree = "<group>"; };
 		4121CA2E1EC4BE5100062D37 /* ComicDetailViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ComicDetailViewModel.swift; sourceTree = "<group>"; };
 		4121CA301EC4BF1500062D37 /* ComicDetailViewModelSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ComicDetailViewModelSpec.swift; sourceTree = "<group>"; };
+		4121CA321EC4CC8000062D37 /* MarvelAPIDataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MarvelAPIDataSource.swift; sourceTree = "<group>"; };
+		4121CA341EC4D1B400062D37 /* DataSourceError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataSourceError.swift; sourceTree = "<group>"; };
+		4121CA361EC4D2CB00062D37 /* ReactiveSwift+Helpers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "ReactiveSwift+Helpers.swift"; sourceTree = "<group>"; };
 		41CF1F561E41FEA0009CCA34 /* ReactiveCocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ReactiveCocoa.framework; path = Carthage/Build/iOS/ReactiveCocoa.framework; sourceTree = "<group>"; };
 		41CF1F571E41FEA0009CCA34 /* ReactiveSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ReactiveSwift.framework; path = Carthage/Build/iOS/ReactiveSwift.framework; sourceTree = "<group>"; };
 		41CF1F581E41FEA0009CCA34 /* Result.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Result.framework; path = Carthage/Build/iOS/Result.framework; sourceTree = "<group>"; };
@@ -194,6 +200,8 @@
 				4121CA0C1EC436C800062D37 /* ComicCoversDataSource.swift */,
 				4121CA0E1EC438D700062D37 /* InMemoryDataSource.swift */,
 				4121CA2C1EC4BDCA00062D37 /* ComicDetailDataSource.swift */,
+				4121CA321EC4CC8000062D37 /* MarvelAPIDataSource.swift */,
+				4121CA341EC4D1B400062D37 /* DataSourceError.swift */,
 			);
 			name = DataSources;
 			sourceTree = "<group>";
@@ -248,6 +256,7 @@
 			isa = PBXGroup;
 			children = (
 				4121CA031EC4343700062D37 /* NavigationController+Completion.swift */,
+				4121CA361EC4D2CB00062D37 /* ReactiveSwift+Helpers.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -549,6 +558,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				4121CA041EC4343700062D37 /* NavigationController+Completion.swift in Sources */,
+				4121CA351EC4D1B400062D37 /* DataSourceError.swift in Sources */,
 				4121CA021EC433FD00062D37 /* Router.swift in Sources */,
 				4121CA201EC48CB800062D37 /* ComicCoverCollectionViewCell.swift in Sources */,
 				4121CA2D1EC4BDCA00062D37 /* ComicDetailDataSource.swift in Sources */,
@@ -558,6 +568,8 @@
 				41CF1F651E420BAB009CCA34 /* main.swift in Sources */,
 				4121CA071EC4354100062D37 /* ComicCoversViewController.swift in Sources */,
 				4121CA2B1EC4A8F500062D37 /* ParallaxHeaderView.swift in Sources */,
+				4121CA371EC4D2CB00062D37 /* ReactiveSwift+Helpers.swift in Sources */,
+				4121CA331EC4CC8000062D37 /* MarvelAPIDataSource.swift in Sources */,
 				4121CA0F1EC438D700062D37 /* InMemoryDataSource.swift in Sources */,
 				4121CA111EC4390000062D37 /* Comic.swift in Sources */,
 				4121CA0D1EC436C800062D37 /* ComicCoversDataSource.swift in Sources */,

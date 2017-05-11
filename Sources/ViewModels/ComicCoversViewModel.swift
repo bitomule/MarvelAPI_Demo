@@ -67,7 +67,7 @@ final class ComicCoversViewModel:ComicCoversViewModelType,ComicCoversInput,Comic
   var selectedCharacters:[String] = []
   var noMoreDataAvailable = false
   
-  init(limit:Int = 10,dataSource:ComicCoversDataSource = InMemoryDataSource()){
+  init(limit:Int = 10,dataSource:ComicCoversDataSource = MarvelAPIDataSource()){
     self.dataSource = dataSource
     self.limit = limit
     
@@ -91,6 +91,7 @@ final class ComicCoversViewModel:ComicCoversViewModelType,ComicCoversInput,Comic
             strongSelf.noMoreDataAvailable = true
           }
         })
+        .ignoreErrors()
         .map{$0 + strongSelf.comics.value}
     }
     

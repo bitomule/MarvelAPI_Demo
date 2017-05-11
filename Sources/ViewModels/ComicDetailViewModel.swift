@@ -40,10 +40,10 @@ final class ComicDetailViewModel:ComicDetailViewModelType,ComicDetailInput,Comic
   let comic:MutableProperty<Comic?> = MutableProperty(nil)
   let dataSource:ComicDetailDataSource
   
-  init(comicId:Int,dataSource:ComicDetailDataSource = InMemoryDataSource()){
+  init(comicId:Int,dataSource:ComicDetailDataSource = MarvelAPIDataSource()){
     self.dataSource = dataSource
     
-    comic <~ dataSource.getComic(id: comicId)
+    comic <~ dataSource.getComic(id: comicId).ignoreErrors()
     
     title <~ comic.map{$0?.title}
     
