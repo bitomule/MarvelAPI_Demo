@@ -1,4 +1,4 @@
-# WallapopMarvel #
+# Marvel Demo App #
 
 ## Setup ##
 
