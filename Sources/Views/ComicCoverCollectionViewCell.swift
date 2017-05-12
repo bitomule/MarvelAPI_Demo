@@ -21,7 +21,7 @@ class ComicCoverCollectionViewCell: UICollectionViewCell,NibReusable {
   
   func setup(imageUrl:String){
     if let url = URL(string: imageUrl){
-      coverView.kf.setImage(with: url)
+      coverView.kf.setImage(with: url, placeholder: Asset.Loading.image, options: nil, progressBlock: nil, completionHandler: nil)
     }
   }
   

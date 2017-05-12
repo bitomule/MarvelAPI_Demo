@@ -49,7 +49,7 @@ class ComicDetailViewController: UIViewController {
     viewModel.outputs.imageUrl.producer.startWithValues {[weak self] url in
       guard let url = url else {return}
       self?.headerImageView.kf.cancelDownloadTask()
-      self?.headerImageView.kf.setImage(with: url)
+      self?.headerImageView.kf.setImage(with: url, placeholder: Asset.Loading.image, options: nil, progressBlock: nil, completionHandler: nil)
     }
   }
   

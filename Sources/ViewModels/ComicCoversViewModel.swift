@@ -14,6 +14,7 @@ protocol ComicCoversOutput{
   func itemAt(index:Int)->Comic
   var itemsAdded:Signal<Int,NoError> {get}
   var itemsReloaded:Signal<(),NoError> {get}
+  var error:Signal<DataSourceError,NoError> {get}
 }
 
 protocol ComicCoversInput{
@@ -61,6 +62,7 @@ final class ComicCoversViewModel:ComicCoversViewModelType,ComicCoversInput,Comic
   let dataSource:ComicCoversDataSource
   let comics:MutableProperty<[Comic]> = MutableProperty([])
   let (reloadData, reloadDataObserver) = Signal<(), NoError>.pipe()
+  let (error, errorObserver) = Signal<DataSourceError, NoError>.pipe()
   
   let limit:Int
   var offset = 0
@@ -82,10 +84,10 @@ final class ComicCoversViewModel:ComicCoversViewModelType,ComicCoversInput,Comic
       return oldItems.count == newItems.count || oldItems.count > newItems.count
     }).map{_ in ()}
     
-    comics <~ reloadData.filter({[weak self] _ -> Bool in
+    comics <~ SignalProducer<(), NoError>(reloadData).filter({[weak self] _ -> Bool in
       guard let strongSelf = self else {return false}
       return !strongSelf.noMoreDataAvailable && !strongSelf.loading
-    }).flatMap(.merge) {[weak self] _ -> SignalProducer<[Comic], NoError> in
+    }).flatMap(.merge) {[weak self] _ -> SignalProducer<[Comic], DataSourceError> in
       guard let strongSelf = self else {return SignalProducer.empty}
       strongSelf.loading = true
       return dataSource.getComics(characters: strongSelf.selectedCharacters, limit: strongSelf.limit, offset: strongSelf.offset)
@@ -95,18 +97,10 @@ final class ComicCoversViewModel:ComicCoversViewModelType,ComicCoversInput,Comic
             strongSelf.noMoreDataAvailable = true
           }
         })
-        .ignoreErrors()
         .map{$0 + strongSelf.comics.value}
-        .on(failed: {[weak self] _ in
-          self?.loading = false
-        }, completed: { [weak self] in
-          self?.loading = false
-        }, interrupted: { [weak self] in
-          self?.loading = false
-        }, value: { [weak self] _ in
-          self?.loading = false
-        })
-    }    
+    }.on(event: {[weak self] _ in
+      self?.loading = false
+    }).redirectErrorsToObserver(errorObserver, replacementValue: nil)
     
     reloadDataObserver.send(value: ())
     

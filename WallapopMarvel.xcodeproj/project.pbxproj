@@ -44,6 +44,7 @@
 		4121CA3B1EC4F1B400062D37 /* MarvelHashGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4121CA3A1EC4F1B400062D37 /* MarvelHashGenerator.swift */; };
 		4121CA3D1EC4F63D00062D37 /* CryptoSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4121CA3C1EC4F63D00062D37 /* CryptoSwift.framework */; };
 		4121CA3F1EC4FC8F00062D37 /* ScrollView+Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4121CA3E1EC4FC8F00062D37 /* ScrollView+Helpers.swift */; };
+		4121CA411EC5A56800062D37 /* Images.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4121CA401EC5A56800062D37 /* Images.swift */; };
 		41CF1F591E41FEA0009CCA34 /* ReactiveCocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 41CF1F561E41FEA0009CCA34 /* ReactiveCocoa.framework */; };
 		41CF1F5A1E41FEA0009CCA34 /* ReactiveSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 41CF1F571E41FEA0009CCA34 /* ReactiveSwift.framework */; };
 		41CF1F5B1E41FEA0009CCA34 /* Result.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 41CF1F581E41FEA0009CCA34 /* Result.framework */; };
@@ -122,6 +123,7 @@
 		4121CA3A1EC4F1B400062D37 /* MarvelHashGenerator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MarvelHashGenerator.swift; sourceTree = "<group>"; };
 		4121CA3C1EC4F63D00062D37 /* CryptoSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CryptoSwift.framework; path = Carthage/Build/iOS/CryptoSwift.framework; sourceTree = "<group>"; };
 		4121CA3E1EC4FC8F00062D37 /* ScrollView+Helpers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "ScrollView+Helpers.swift"; sourceTree = "<group>"; };
+		4121CA401EC5A56800062D37 /* Images.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Images.swift; sourceTree = "<group>"; };
 		41CF1F561E41FEA0009CCA34 /* ReactiveCocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ReactiveCocoa.framework; path = Carthage/Build/iOS/ReactiveCocoa.framework; sourceTree = "<group>"; };
 		41CF1F571E41FEA0009CCA34 /* ReactiveSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ReactiveSwift.framework; path = Carthage/Build/iOS/ReactiveSwift.framework; sourceTree = "<group>"; };
 		41CF1F581E41FEA0009CCA34 /* Result.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Result.framework; path = Carthage/Build/iOS/Result.framework; sourceTree = "<group>"; };
@@ -235,6 +237,7 @@
 		4121CA221EC4A3AA00062D37 /* Constants */ = {
 			isa = PBXGroup;
 			children = (
+				4121CA401EC5A56800062D37 /* Images.swift */,
 				4121CA231EC4A3AA00062D37 /* Strings.swift */,
 			);
 			path = Constants;
@@ -512,7 +515,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "if which swiftgen >/dev/null; then\nswiftgen images \"$PROJECT_DIR/Sources/Resources/Assets.xcassets\" --output \"$PROJECT_DIR/Sources/Resources/Constants/Images.swift\"\nswiftgen strings \"$PROJECT_DIR/Sources/Resources/en.lproj/Localizable.strings\" --output \"$PROJECT_DIR/Sources/Resources/Constants/Strings.swift\" -t swift3\nelse\necho \"warning: SwiftGen not installed, download it from https://github.com/AliSoftware/SwiftGen\"\nfi";
+			shellScript = "if which swiftgen >/dev/null; then\nswiftgen images \"$PROJECT_DIR/Sources/Resources/Images.xcassets\" --output \"$PROJECT_DIR/Sources/Resources/Constants/Images.swift\"\nswiftgen strings \"$PROJECT_DIR/Sources/Resources/en.lproj/Localizable.strings\" --output \"$PROJECT_DIR/Sources/Resources/Constants/Strings.swift\" -t swift3\nelse\necho \"warning: SwiftGen not installed, download it from https://github.com/AliSoftware/SwiftGen\"\nfi";
 		};
 		F83205341D83695500047B79 /* Embed Carthage Dependencies */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -575,6 +578,7 @@
 				4121CA041EC4343700062D37 /* NavigationController+Completion.swift in Sources */,
 				4121CA351EC4D1B400062D37 /* DataSourceError.swift in Sources */,
 				4121CA021EC433FD00062D37 /* Router.swift in Sources */,
+				4121CA411EC5A56800062D37 /* Images.swift in Sources */,
 				4121CA201EC48CB800062D37 /* ComicCoverCollectionViewCell.swift in Sources */,
 				4121CA2D1EC4BDCA00062D37 /* ComicDetailDataSource.swift in Sources */,
 				4121CA001EC4331000062D37 /* AppCoordinator.swift in Sources */,

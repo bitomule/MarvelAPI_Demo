@@ -61,7 +61,7 @@
                 <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="UYj-Dg-lEo" userLabel="HeaderView" customClass="ParallaxHeaderView" customModule="WallapopMarvel" customModuleProvider="target">
                     <rect key="frame" x="0.0" y="0.0" width="375" height="220"/>
                     <subviews>
-                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="1yj-j0-aBL" userLabel="HeaderImageView">
+                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Loading" translatesAutoresizingMaskIntoConstraints="NO" id="1yj-j0-aBL" userLabel="HeaderImageView">
                             <rect key="frame" x="0.0" y="0.0" width="375" height="220"/>
                         </imageView>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="64L-xe-fM1">
@@ -129,4 +129,7 @@
             </constraints>
         </view>
     </objects>
+    <resources>
+        <image name="Loading" width="485" height="272"/>
+    </resources>
 </document>
