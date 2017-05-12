@@ -1,6 +1,5 @@
 github "ReactiveCocoa/ReactiveCocoa" ~> 5.0
 github "AliSoftware/Reusable"
 github "bitomule/Moya-Gloss" "master"
-github "aschuch/AwesomeCache"
 github "onevcat/Kingfisher" ~> 3.0
 github "krzyzanowskim/CryptoSwift"
