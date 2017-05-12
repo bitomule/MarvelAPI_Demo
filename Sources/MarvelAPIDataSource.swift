@@ -85,8 +85,8 @@ extension MarvelService: TargetType {
 
 final class MarvelAPIDataSource{
   
-  fileprivate let marvelService = ReactiveSwiftMoyaProvider<MarvelService>(plugins: [NetworkLoggerPlugin(verbose: true)])
-  //fileprivate let marvelService = ReactiveSwiftMoyaProvider<MarvelService>()
+  //fileprivate let marvelService = ReactiveSwiftMoyaProvider<MarvelService>(plugins: [NetworkLoggerPlugin(verbose: true)])
+  fileprivate let marvelService = ReactiveSwiftMoyaProvider<MarvelService>()
   
   let publicAPIKey:String
   let privateAPIKey:String

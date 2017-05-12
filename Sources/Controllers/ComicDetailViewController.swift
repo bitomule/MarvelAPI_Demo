@@ -18,6 +18,7 @@ class ComicDetailViewController: UIViewController {
   @IBOutlet weak var headerImageView: UIImageView!
   @IBOutlet weak var titleLabel: UILabel!
   @IBOutlet weak var descriptionTextView: UITextView!
+  @IBOutlet weak var issueNumberLabel: UILabel!
   
   
   @IBAction func backButtonPressed(_ sender: Any) {
@@ -43,6 +44,7 @@ class ComicDetailViewController: UIViewController {
     
     descriptionTextView.reactive.text <~ viewModel.outputs.description
     titleLabel.reactive.text <~ viewModel.outputs.title
+    issueNumberLabel.reactive.text <~ viewModel.outputs.issueNumber
     
     viewModel.outputs.imageUrl.producer.startWithValues {[weak self] url in
       guard let url = url else {return}
@@ -80,6 +82,8 @@ extension ComicDetailViewController:ParallaxHeaderDelegate{
   func updateFlexibleHeaderSubviews(_ progress: CGFloat) {
 
     backButton.alpha = interpolate(from: 0, to: 1, withProgress: progress / 0.5)
+    titleLabel.alpha = interpolate(from: 0, to: 1, withProgress: progress / 0.5)
+    issueNumberLabel.alpha = interpolate(from: 0, to: 1, withProgress: progress / 0.5)
     navigationController?.navigationBar.alpha = interpolate(from: 1, to: 0, withProgress: progress / 0.5)
   }
 

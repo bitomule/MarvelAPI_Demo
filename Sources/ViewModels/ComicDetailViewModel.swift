@@ -13,6 +13,7 @@ protocol ComicDetailOutput{
   var title:MutableProperty<String?> {get}
   var description:MutableProperty<String?> {get}
   var imageUrl:MutableProperty<URL?> {get}
+  var issueNumber:MutableProperty<String?> {get}
 }
 
 protocol ComicDetailInput{
@@ -34,6 +35,7 @@ final class ComicDetailViewModel:ComicDetailViewModelType,ComicDetailInput,Comic
   let title:MutableProperty<String?> = MutableProperty(nil)
   let description:MutableProperty<String?> = MutableProperty(nil)
   let imageUrl:MutableProperty<URL?> = MutableProperty(nil)
+  let issueNumber:MutableProperty<String?> = MutableProperty(nil)
   
   //Inputs
   
@@ -48,6 +50,8 @@ final class ComicDetailViewModel:ComicDetailViewModelType,ComicDetailInput,Comic
     title <~ comic.map{$0?.title}
     
     description <~ comic.map{$0?.description}
+    
+    issueNumber <~ comic.map{$0?.issueNumber}.producer.skipNil().map{String(Int($0))}
     
     imageUrl <~ comic.producer.skipNil().map{$0.cover}.skipNil().map({ coverUrl -> URL? in
       return URL(string: coverUrl)
