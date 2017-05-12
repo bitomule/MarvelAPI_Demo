@@ -19,7 +19,7 @@ protocol ComicCoversOutput{
 
 protocol ComicCoversInput{
   func loadMore()
-  var filterByCharacters:([String])->() {get}
+  var filterByCharacter:(Int)->() {get}
 }
 
 protocol ComicCoversViewModelType{
@@ -50,9 +50,9 @@ final class ComicCoversViewModel:ComicCoversViewModelType,ComicCoversInput,Comic
     reloadDataObserver.send(value: ())
   }
   
-  var filterByCharacters:([String])->(){
-    return {[weak self] charactersIds in
-      self?.selectedCharacters = charactersIds
+  var filterByCharacter:(Int)->(){
+    return {[weak self] characterId in
+      self?.selectedCharacter = characterId
       self?.comics.value = []
       self?.reloadDataObserver.send(value: ())
     }
@@ -66,7 +66,7 @@ final class ComicCoversViewModel:ComicCoversViewModelType,ComicCoversInput,Comic
   
   let limit:Int
   var offset = 0
-  var selectedCharacters:[String] = []
+  var selectedCharacter:Int? = nil
   var noMoreDataAvailable = false
   var loading = false
   
@@ -76,31 +76,44 @@ final class ComicCoversViewModel:ComicCoversViewModelType,ComicCoversInput,Comic
     
     itemsCount <~ comics.map{$0.count}
     
-    itemsAdded = comics.signal.combinePrevious([]).map { oldItems, newItems -> Int in
-      return newItems.count - oldItems.count
+    itemsAdded = comics
+      .signal
+      .combinePrevious([])
+      .filter({ oldItems, newItems -> Bool in
+        return newItems.count > oldItems.count
+      })
+      .map { oldItems, newItems -> Int in
+        return newItems.count - oldItems.count
     }
     
-    itemsReloaded = comics.signal.combinePrevious([]).filter({ oldItems, newItems -> Bool in
-      return oldItems.count == newItems.count || oldItems.count > newItems.count
-    }).map{_ in ()}
+    itemsReloaded = comics
+      .signal
+      .combinePrevious([])
+      .filter({ oldItems, newItems -> Bool in
+        return oldItems.count == newItems.count || oldItems.count > newItems.count
+      })
+      .map{_ in ()}
     
-    comics <~ SignalProducer<(), NoError>(reloadData).filter({[weak self] _ -> Bool in
-      guard let strongSelf = self else {return false}
-      return !strongSelf.noMoreDataAvailable && !strongSelf.loading
-    }).flatMap(.merge) {[weak self] _ -> SignalProducer<[Comic], DataSourceError> in
-      guard let strongSelf = self else {return SignalProducer.empty}
-      strongSelf.loading = true
-      return dataSource.getComics(characters: strongSelf.selectedCharacters, limit: strongSelf.limit, offset: strongSelf.offset)
-        .on(value: {[weak self] comics in
-          guard let strongSelf = self else {return}
-          if comics.count < strongSelf.limit{
-            strongSelf.noMoreDataAvailable = true
-          }
-        })
-        .map{$0 + strongSelf.comics.value}
-    }.on(event: {[weak self] _ in
-      self?.loading = false
-    }).redirectErrorsToObserver(errorObserver, replacementValue: nil)
+    comics <~ SignalProducer<(), NoError>(reloadData)
+      .filter({[weak self] _ -> Bool in
+        guard let strongSelf = self else {return false}
+        return !strongSelf.noMoreDataAvailable && !strongSelf.loading
+      })
+      .flatMap(.merge) {[weak self] _ -> SignalProducer<[Comic], DataSourceError> in
+        guard let strongSelf = self else {return SignalProducer.empty}
+        strongSelf.loading = true
+        return dataSource
+          .getComics(character: strongSelf.selectedCharacter, limit: strongSelf.limit, offset: strongSelf.offset)
+          .on(value: {[weak self] comics in
+            guard let strongSelf = self else {return}
+            if comics.count < strongSelf.limit{
+              strongSelf.noMoreDataAvailable = true
+            }
+          })
+          .map{$0 + strongSelf.comics.value}
+      }.on(event: {[weak self] _ in
+        self?.loading = false
+      }).redirectErrorsToObserver(errorObserver, replacementValue: nil)
     
     reloadDataObserver.send(value: ())
     

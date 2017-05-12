@@ -7,10 +7,10 @@ import Result
 
 private class FakeDataSource:ComicCoversDataSource{
   
-  var fakeResponse:(([String],Int?,Int?)->SignalProducer<[Comic],DataSourceError>)?
+  var fakeResponse:((Int?,Int?,Int?)->SignalProducer<[Comic],DataSourceError>)?
   
-  func getComics(characters:[String],limit:Int?,offset:Int?)->SignalProducer<[Comic],DataSourceError>{
-    return fakeResponse?(characters, limit, offset) ?? SignalProducer.empty
+  func getComics(character:Int?,limit:Int?,offset:Int?)->SignalProducer<[Comic],DataSourceError>{
+    return fakeResponse?(character, limit, offset) ?? SignalProducer.empty
   }
 }
 
@@ -87,8 +87,22 @@ final class ComicCoversViewModelSpec: QuickSpec {
         viewModel.outputs.itemsReloaded.observeValues({ _ in
           called = true
         })
-        viewModel.inputs.filterByCharacters(["1"])
+        viewModel.inputs.filterByCharacter(1)
         expect(called).to(beTrue())
+      }
+      
+      it("should not send negative added items"){
+        viewModel = ComicCoversViewModel(limit:1,dataSource:dataSource)
+        viewModel.comics.value = [
+          Comic(id: 0, title: "", issueNumber: 1, description: "", pageCount: 1, thumbnail: nil, cover: nil),
+          Comic(id: 1, title: "", issueNumber: 1, description: "", pageCount: 1, thumbnail: nil, cover: nil)
+        ]
+        var itemsAdded = 0
+        viewModel.outputs.itemsAdded.observeValues({ added in
+          itemsAdded = added
+        })
+        viewModel.comics.value = []
+        expect(itemsAdded).to(beGreaterThanOrEqualTo(0))
       }
     }
     
@@ -136,7 +150,7 @@ final class ComicCoversViewModelSpec: QuickSpec {
           )
         }
         viewModel = ComicCoversViewModel(limit:5,dataSource:dataSource)
-        viewModel.inputs.filterByCharacters(["1"])
+        viewModel.inputs.filterByCharacter(1)
         expect(viewModel.outputs.itemsCount.value).toEventually(equal(0))
       }
       

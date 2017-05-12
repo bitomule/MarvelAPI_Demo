@@ -34,6 +34,8 @@ class ComicCoversViewController: UIViewController {
     
     title = L10n.comicsCoversTitle.string
     
+    navigationItem.setRightBarButton(UIBarButtonItem(barButtonSystemItem: .bookmarks, target: self, action: #selector(charactersFilterButtonPressed)), animated: true)
+    
     collectionView.register(cellType: ComicCoverCollectionViewCell.self)
     
     collectionView.reactive.reloadData <~ viewModel.outputs.itemsReloaded
@@ -57,6 +59,10 @@ class ComicCoversViewController: UIViewController {
   override func willTransition(to newCollection: UITraitCollection, with coordinator: UIViewControllerTransitionCoordinator) {
     super.willTransition(to: newCollection, with: coordinator)
     collectionView.collectionViewLayout.invalidateLayout()
+  }
+  
+  func charactersFilterButtonPressed(){
+    appCoordinator.router.navigate(from: self, to: Routes.characterFilter(optionSelected: viewModel.inputs.filterByCharacter), style: .modal).start()
   }
   
 }

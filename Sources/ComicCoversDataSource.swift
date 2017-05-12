@@ -10,5 +10,5 @@ import ReactiveSwift
 import Result
 
 protocol ComicCoversDataSource{
-  func getComics(characters:[String],limit:Int?,offset:Int?)->SignalProducer<[Comic],DataSourceError>
+  func getComics(character:Int?,limit:Int?,offset:Int?)->SignalProducer<[Comic],DataSourceError>
 }

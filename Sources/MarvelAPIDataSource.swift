@@ -17,7 +17,7 @@ import Result
 
 
 private enum MarvelService {
-  case comics(privateAPIKey:String,publicAPIKey:String,characters:[String],limit:Int?,offset:Int?)
+  case comics(privateAPIKey:String,publicAPIKey:String,character:Int?,limit:Int?,offset:Int?)
   case comic(privateAPIKey:String,publicAPIKey:String,id:Int)
 }
 
@@ -42,9 +42,9 @@ extension MarvelService: TargetType {
   
   var parameters: [String: Any]? {
     switch self {
-    case let .comics(privateAPIKey,publicAPIKey,characters,limit,offset):
+    case let .comics(privateAPIKey,publicAPIKey,character,limit,offset):
       let timeStamp = Int(Date().timeIntervalSince1970 * 1000)
-      return [
+      var params:[String:Any] = [
         "ts":timeStamp,
         "hash":MarvelHashGenerator.generateHash(timestamp: timeStamp, privateKey: privateAPIKey, publicKey: publicAPIKey),
         "format":"comic",
@@ -52,6 +52,10 @@ extension MarvelService: TargetType {
         "offset":offset,
         "apikey":publicAPIKey
       ]
+      if let character = character{
+        params["characters"] = [character]
+      }
+      return params
     case let .comic(privateAPIKey,publicAPIKey,_):
       let timeStamp = Int(Date().timeIntervalSince1970 * 1000)
       return [
@@ -128,13 +132,13 @@ extension SignalProducerProtocol where Self.Error == MoyaError{
 
 
 extension MarvelAPIDataSource:ComicCoversDataSource{
-  func getComics(characters:[String],limit:Int?,offset:Int?)->SignalProducer<[Comic],DataSourceError>{
+  func getComics(character:Int?,limit:Int?,offset:Int?)->SignalProducer<[Comic],DataSourceError>{
     return marvelService
       .request(
         .comics(
           privateAPIKey: privateAPIKey,
           publicAPIKey: publicAPIKey,
-          characters: characters,
+          character: character,
           limit: limit,
           offset: offset
         )

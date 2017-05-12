@@ -16,7 +16,7 @@ final class InMemoryDataSource{
 
 extension InMemoryDataSource:ComicCoversDataSource{
   
-  func getComics(characters:[String],limit:Int?,offset:Int?)->SignalProducer<[Comic],DataSourceError>{
+  func getComics(character:Int?,limit:Int?,offset:Int?)->SignalProducer<[Comic],DataSourceError>{
     return SignalProducer({ observer, _ in
       observer.send(value: inMemoryComics)
     })

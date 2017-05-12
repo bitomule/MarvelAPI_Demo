@@ -45,6 +45,8 @@
 		4121CA3D1EC4F63D00062D37 /* CryptoSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4121CA3C1EC4F63D00062D37 /* CryptoSwift.framework */; };
 		4121CA3F1EC4FC8F00062D37 /* ScrollView+Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4121CA3E1EC4FC8F00062D37 /* ScrollView+Helpers.swift */; };
 		4121CA411EC5A56800062D37 /* Images.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4121CA401EC5A56800062D37 /* Images.swift */; };
+		4121CA441EC5A6C300062D37 /* CharactersFilterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4121CA421EC5A6C300062D37 /* CharactersFilterViewController.swift */; };
+		4121CA451EC5A6C300062D37 /* CharactersFilterViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4121CA431EC5A6C300062D37 /* CharactersFilterViewController.xib */; };
 		41CF1F591E41FEA0009CCA34 /* ReactiveCocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 41CF1F561E41FEA0009CCA34 /* ReactiveCocoa.framework */; };
 		41CF1F5A1E41FEA0009CCA34 /* ReactiveSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 41CF1F571E41FEA0009CCA34 /* ReactiveSwift.framework */; };
 		41CF1F5B1E41FEA0009CCA34 /* Result.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 41CF1F581E41FEA0009CCA34 /* Result.framework */; };
@@ -124,6 +126,8 @@
 		4121CA3C1EC4F63D00062D37 /* CryptoSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CryptoSwift.framework; path = Carthage/Build/iOS/CryptoSwift.framework; sourceTree = "<group>"; };
 		4121CA3E1EC4FC8F00062D37 /* ScrollView+Helpers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "ScrollView+Helpers.swift"; sourceTree = "<group>"; };
 		4121CA401EC5A56800062D37 /* Images.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Images.swift; sourceTree = "<group>"; };
+		4121CA421EC5A6C300062D37 /* CharactersFilterViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CharactersFilterViewController.swift; path = ../Views/CharactersFilterViewController.swift; sourceTree = "<group>"; };
+		4121CA431EC5A6C300062D37 /* CharactersFilterViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CharactersFilterViewController.xib; sourceTree = "<group>"; };
 		41CF1F561E41FEA0009CCA34 /* ReactiveCocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ReactiveCocoa.framework; path = Carthage/Build/iOS/ReactiveCocoa.framework; sourceTree = "<group>"; };
 		41CF1F571E41FEA0009CCA34 /* ReactiveSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ReactiveSwift.framework; path = Carthage/Build/iOS/ReactiveSwift.framework; sourceTree = "<group>"; };
 		41CF1F581E41FEA0009CCA34 /* Result.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Result.framework; path = Carthage/Build/iOS/Result.framework; sourceTree = "<group>"; };
@@ -294,6 +298,7 @@
 				4121CA011EC433FD00062D37 /* Router.swift */,
 				4121CA051EC4354100062D37 /* ComicCoversViewController.swift */,
 				4121CA251EC4A7E000062D37 /* ComicDetailViewController.swift */,
+				4121CA421EC5A6C300062D37 /* CharactersFilterViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -394,6 +399,7 @@
 				4121CA1A1EC48C8800062D37 /* Cells */,
 				4121CA061EC4354100062D37 /* ComicCoversViewController.xib */,
 				4121CA261EC4A7E000062D37 /* ComicDetailViewController.xib */,
+				4121CA431EC5A6C300062D37 /* CharactersFilterViewController.xib */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -490,6 +496,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4121CA451EC5A6C300062D37 /* CharactersFilterViewController.xib in Resources */,
 				4121CA391EC4E6D600062D37 /* keys.plist in Resources */,
 				9495297B22BFA74C15A528C9 /* Images.xcassets in Resources */,
 				4121C9E91EC39C6300062D37 /* Localizable.strings in Resources */,
@@ -594,6 +601,7 @@
 				4121CA0F1EC438D700062D37 /* InMemoryDataSource.swift in Sources */,
 				4121CA111EC4390000062D37 /* Comic.swift in Sources */,
 				4121CA0D1EC436C800062D37 /* ComicCoversDataSource.swift in Sources */,
+				4121CA441EC5A6C300062D37 /* CharactersFilterViewController.swift in Sources */,
 				4121CA241EC4A3AA00062D37 /* Strings.swift in Sources */,
 				E240F77D45ED5ACE1B723036 /* AppDelegate.swift in Sources */,
 				4121CA2F1EC4BE5100062D37 /* ComicDetailViewModel.swift in Sources */,

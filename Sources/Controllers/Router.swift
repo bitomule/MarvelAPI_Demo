@@ -74,6 +74,7 @@ final class Router:RouterType{
 enum Routes{
   case comicCovers
   case comicDetail(comicId:Int)
+  case characterFilter(optionSelected:(Int)->())
 }
 
 extension Routes:RouterNavigable{
@@ -86,6 +87,9 @@ extension Routes:RouterNavigable{
     case .comicDetail(let comicId):
       let vm = ComicDetailViewModel(comicId:comicId)
       let vc = ComicDetailViewController(appCoordinator: appCoordinator,viewModel:vm)
+      return vc
+    case .characterFilter(let optionSelected):
+      let vc = CharactersFilterViewController(optionSelected:optionSelected)
       return vc
     }
   }
