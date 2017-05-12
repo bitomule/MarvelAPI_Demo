@@ -28,7 +28,7 @@ class ComicCoverCollectionViewCell: UICollectionViewCell,NibReusable {
   override func prepareForReuse() {
     super.prepareForReuse()
     coverView.kf.cancelDownloadTask()
-    coverView.image = nil
+    coverView.image = Asset.Loading.image
   }
   
   override var isSelected: Bool {
