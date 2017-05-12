@@ -26,7 +26,7 @@ final class ComicDetailViewModelSpec: QuickSpec {
       it("sets name from dataSource") {
         dataSource.fakeResponse = { _ in
           return SignalProducer(value:
-            Comic(id: 0, title: "TEST", issueNumber: 1, description: "", pageCount: 1, thumbnail: nil, images: [])
+            Comic(id: 0, title: "TEST", issueNumber: 1, description: "", pageCount: 1, thumbnail: nil, cover: nil)
           )
         }
         viewModel = ComicDetailViewModel(comicId: 1, dataSource: dataSource)

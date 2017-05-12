@@ -66,6 +66,7 @@ final class ComicCoversViewModel:ComicCoversViewModelType,ComicCoversInput,Comic
   var offset = 0
   var selectedCharacters:[String] = []
   var noMoreDataAvailable = false
+  var loading = false
   
   init(limit:Int = 10,dataSource:ComicCoversDataSource = MarvelAPIDataSource()){
     self.dataSource = dataSource
@@ -83,9 +84,10 @@ final class ComicCoversViewModel:ComicCoversViewModelType,ComicCoversInput,Comic
     
     comics <~ reloadData.filter({[weak self] _ -> Bool in
       guard let strongSelf = self else {return false}
-      return !strongSelf.noMoreDataAvailable
+      return !strongSelf.noMoreDataAvailable && !strongSelf.loading
     }).flatMap(.merge) {[weak self] _ -> SignalProducer<[Comic], NoError> in
       guard let strongSelf = self else {return SignalProducer.empty}
+      strongSelf.loading = true
       return dataSource.getComics(characters: strongSelf.selectedCharacters, limit: strongSelf.limit, offset: strongSelf.offset)
         .on(value: {[weak self] comics in
           guard let strongSelf = self else {return}
@@ -95,6 +97,15 @@ final class ComicCoversViewModel:ComicCoversViewModelType,ComicCoversInput,Comic
         })
         .ignoreErrors()
         .map{$0 + strongSelf.comics.value}
+        .on(failed: {[weak self] _ in
+          self?.loading = false
+        }, completed: { [weak self] in
+          self?.loading = false
+        }, interrupted: { [weak self] in
+          self?.loading = false
+        }, value: { [weak self] _ in
+          self?.loading = false
+        })
     }    
     
     reloadDataObserver.send(value: ())
