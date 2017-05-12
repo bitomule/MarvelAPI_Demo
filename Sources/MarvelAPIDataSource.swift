@@ -129,7 +129,18 @@ extension SignalProducerProtocol where Self.Error == MoyaError{
 
 extension MarvelAPIDataSource:ComicCoversDataSource{
   func getComics(characters:[String],limit:Int?,offset:Int?)->SignalProducer<[Comic],DataSourceError>{
-    return marvelService.request(.comics(privateAPIKey: privateAPIKey,publicAPIKey: publicAPIKey,characters: characters, limit: limit, offset: offset)).mapArray(type: Comic.self, forKeyPath: "data.results").mapRequestError()
+    return marvelService
+      .request(
+        .comics(
+          privateAPIKey: privateAPIKey,
+          publicAPIKey: publicAPIKey,
+          characters: characters,
+          limit: limit,
+          offset: offset
+        )
+      )
+      .mapArray(type: Comic.self, forKeyPath: "data.results")
+      .mapRequestError()
   }
 }
 
