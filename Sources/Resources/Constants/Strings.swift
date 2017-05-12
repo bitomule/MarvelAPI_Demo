@@ -9,6 +9,10 @@ import Foundation
 enum L10n {
   /// Marvelpop
   case comicsCoversTitle
+  /// Ups. We can't found that
+  case notFoundBody
+  /// Not found
+  case notFoundTitle
 }
 // swiftlint:enable type_body_length
 
@@ -19,6 +23,10 @@ extension L10n: CustomStringConvertible {
     switch self {
       case .comicsCoversTitle:
         return L10n.tr(key: "comics_covers_title")
+      case .notFoundBody:
+        return L10n.tr(key: "not_found_body")
+      case .notFoundTitle:
+        return L10n.tr(key: "not_found_title")
     }
   }
 

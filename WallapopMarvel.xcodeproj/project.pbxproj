@@ -206,11 +206,11 @@
 		4121CA0B1EC436B100062D37 /* DataSources */ = {
 			isa = PBXGroup;
 			children = (
+				4121CA341EC4D1B400062D37 /* DataSourceError.swift */,
 				4121CA0C1EC436C800062D37 /* ComicCoversDataSource.swift */,
 				4121CA0E1EC438D700062D37 /* InMemoryDataSource.swift */,
 				4121CA2C1EC4BDCA00062D37 /* ComicDetailDataSource.swift */,
 				4121CA321EC4CC8000062D37 /* MarvelAPIDataSource.swift */,
-				4121CA341EC4D1B400062D37 /* DataSourceError.swift */,
 				4121CA3A1EC4F1B400062D37 /* MarvelHashGenerator.swift */,
 			);
 			name = DataSources;

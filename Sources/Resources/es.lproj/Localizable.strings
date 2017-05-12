@@ -9,3 +9,8 @@
 // Navigation titles
 
 "comics_covers_title" = "Marvelpop";
+
+// API Errors
+
+"not_found_title" = "Imposible encontrar";
+"not_found_body" = "Ups. No podemos encontrar lo que buscas";

@@ -29,8 +29,8 @@ extension MarvelService: TargetType {
     switch self {
     case let .comics(_,_,_,_,_):
       return "/public/comics"
-    case .comic(_,_,_):
-      return "/details/json"
+    case let .comic(_,_,comicId):
+      return "/public/comics/\(comicId)"
     }
   }
   var method: Moya.Method {
@@ -52,8 +52,13 @@ extension MarvelService: TargetType {
         "offset":offset,
         "apikey":publicAPIKey
       ]
-    case .comic(_,_,_):
-      return [:]
+    case let .comic(privateAPIKey,publicAPIKey,_):
+      let timeStamp = Int(Date().timeIntervalSince1970 * 1000)
+      return [
+        "ts":timeStamp,
+        "hash":MarvelHashGenerator.generateHash(timestamp: timeStamp, privateKey: privateAPIKey, publicKey: publicAPIKey),
+        "apikey":publicAPIKey
+      ]
     }
   }
   
@@ -80,8 +85,8 @@ extension MarvelService: TargetType {
 
 final class MarvelAPIDataSource{
   
-  //fileprivate let marvelService = ReactiveSwiftMoyaProvider<MarvelService>(plugins: [NetworkLoggerPlugin(verbose: true)])
-  fileprivate let marvelService = ReactiveSwiftMoyaProvider<MarvelService>()
+  fileprivate let marvelService = ReactiveSwiftMoyaProvider<MarvelService>(plugins: [NetworkLoggerPlugin(verbose: true)])
+  //fileprivate let marvelService = ReactiveSwiftMoyaProvider<MarvelService>()
   
   let publicAPIKey:String
   let privateAPIKey:String
@@ -132,7 +137,24 @@ extension MarvelAPIDataSource:ComicCoversDataSource{
 extension MarvelAPIDataSource:ComicDetailDataSource{
   
   func getComic(id:Int)->SignalProducer<Comic,DataSourceError>{
-    return marvelService.request(.comic(privateAPIKey: privateAPIKey,publicAPIKey: publicAPIKey,id: id)).mapObject(type: Comic.self).mapRequestError()
+    return marvelService
+      .request(
+        .comic(
+          privateAPIKey: privateAPIKey,
+          publicAPIKey: publicAPIKey,
+          id: id
+        )
+      )
+      .mapArray(type: Comic.self, forKeyPath: "data.results")
+      .mapRequestError()
+      .flatMap(.latest, transform: { comics -> SignalProducer<Comic,DataSourceError> in
+        if let comic = comics.first{
+          return SignalProducer(value: comic)
+        }
+        return SignalProducer(error: DataSourceError(title: L10n.notFoundTitle.string, description: L10n.notFoundBody.string))
+      })
+    
   }
 }
+
 
